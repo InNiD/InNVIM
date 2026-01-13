@@ -33,6 +33,7 @@ colorscheme nord
 syntax on
 set cmdheight=1
 set cursorline
+let g:netrw_liststyle = 3
 set laststatus=2
 set number
 set relativenumber
@@ -40,21 +41,13 @@ set ruler
 set showcmd
 set showmode
 set showtabline=2
-set statusline=\ %f   " filename
-set statusline+=\ %y " filetype
-set statusline+=%m
-set statusline+=%r
-set statusline+=%h
-set statusline+=%w
-set statusline+=%=
-set statusline+=%P\ \ \ \ %l-%c\ 
 set title
 set termguicolors
 set t_Co=256
 
 " Edit
 set clipboard+=unnamed
-set completeopt=menuone,noinsert
+set completeopt=menuone,preview,noinsert
 set shortmess+=c
 autocmd FileType * setlocal formatoptions-=r formatoptions-=o
 set nobackup
@@ -129,6 +122,32 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 
+
+" Autocmd
+augroup ReadPost
+    au!
+    " autocmd QuickFixCmdPost * copen
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | execute "normal! zz" | endif "自动定位上次编辑位置
+    autocmd BufDelete * if expand('%:p')!=''&& &bt==""|let g:map_recent_close[expand('%:p')] =
+        \{'lnum':line('.'),'col':col('.'),'text':'close at '.strftime("%H:%M"),'time':localtime()}
+        \|endif
+augroup END
+" 打开最近关闭的buffer
+let g:map_recent_close={}
+func! s:GetRecentClose()
+    let s:list=[]
+    for [key,value] in items(g:map_recent_close)
+        let value['filename']=key
+        call insert(s:list,value)
+    endfor
+    let s:func={m1,m2 -> m1['time']>m2['time']?-1:1}
+    call sort(s:list,s:func)
+    call setqflist(s:list,'r')
+    copen
+endfunc
+nnoremap <silent><nowait><Leader>ot :call <sid>GetRecentClose()<cr>
+
+
 " Plugins
 " auto pop complete menu
 inoremap <silent><expr>/ complete_info(["selected"])["selected"]!=-1&&getline(line('.'))[col('.')-2]=='/'?
@@ -190,67 +209,31 @@ nnoremap <silent><nowait>gcc :call <sid>Commentary(line('.'))<cr>
 xnoremap <silent><nowait>gc  :call <sid>VisualComment()<cr>
 
 
-" function GetMode()
-    " let m = mode()|let s:str=''|let s:color='#9ECE6A'
-    " if m == 'R'|let s:color='#F7768E'|let s:str= 'Replace'
-    " elseif m == 'v'|let s:color='#F7768E'|let s:str= 'Visual'
-    " elseif m == 'i'|let s:color='#7AA2F7'|let s:str= 'Insert'
-    " elseif m == 't'|let s:color='#7AA2F7'|let s:str= 'Terminal'
-    " else|let s:color='#9ECE6A'|let s:str= 'Normal'
-    " endif
-    " exec 'highlight User3 font=#000000 guifg=#1a1b26 guibg='.s:color
-    " exec 'highlight User4 font=#000000 guifg='.s:color.' guibg=#232433'
-    " redraw|return s:str
-" endfunction
+" statusline
+let g:status_git_branch=""
+func! GitBranchShow(chan,msg)
+    let g:status_git_branch=" ".a:msg." "
+endfunc
+if g:status_git_branch==""
+    call job_start("git rev-parse --abbrev-ref HEAD",{"out_cb":"GitBranchShow"})
+endif
 
-" let g:status_git_branch=""
-" func! GitBranchShow(chan,msg)
-    " let g:status_git_branch=" ".a:msg." "
-" endfunc
-" if g:status_git_branch==""
-    " call job_start("git rev-parse --abbrev-ref HEAD",{"out_cb":"GitBranchShow"})
-" endif
+set statusline=%1*\ %{g:status_git_branch}
+set statusline+=%2*\ %f\ 
+set statusline+=%3*
+set statusline+=%4*\ %y
+set statusline+=%m
+set statusline+=%r
+set statusline+=%h
+set statusline+=%w
+set statusline+=%=
+set statusline+=%4*%P\ \ 
+set statusline+=%1*\ %l-%c\ 
 
-" set statusline=%3*\ %{GetMode()}\ 
-" set statusline+=%4*%{g:status_git_branch}\ %y%m%r%h%w%=%f\ 
-" set statusline+=%3*\ %P\ \ \ \ %l-%c\ 
-
-" highlight User1 font=#000000 guifg=#1a1b26 guibg=#9ECE6A
-" highlight User2 font=#000000 guifg=#9ECE6A guibg=#232433
-" highlight User3 font=#000000 guifg=#1a1b26 guibg=#9ECE6A
-" highlight User4 font=#000000 guifg=#9ECE6A guibg=#232433
-" highlight User5 font=#000000 guifg=#1a1b26 guibg=#7AA2F7
-" highlight User6 font=#000000 guifg=#7AA2F7 guibg=#232433
-
-
-" explore
-let g:netrw_liststyle = 3
-
-
-" tabline
-" let s:tab_after=""
-" func! TabLine(direct)
-    " let s:tab_result=""|let flag=0
-    " if a:direct|return s:tab_after|else|let s:tab_after=""|endif
-    " for buf in getbufinfo({'buflisted':1})
-        " let s:name=buf.name
-        " if strridx(buf.name,"/")!=-1|let s:name=strpart(buf.name,strridx(buf.name,"/")+1)|endif
-        " if buf.name!=expand('%:p')
-            " if flag==0|let s:tab_result=s:tab_result." ".s:name|else|let s:tab_after=s:tab_after." ".s:name.""|endif
-        " else
-            " let flag=1
-        " endif
-    " endfor
-    " redrawt
-    " return s:tab_result
-" endfunc
-" func! TabLineSet()
-    " if &modified|let tab="%2* %0.32(%{TabLine(0)}%)%5* %t%6*%2*%<%{TabLine(1)}%r%h%w%=%6*%5* buffer"
-    " else|let tab="%2* %0.32(%{TabLine(0)}%)%1* %t%2*%2*%<%{TabLine(1)}%r%h%w%=%2*%1* buffer"
-    " endif
-    " return tab
-" endfunc
-" set tabline=%!TabLineSet()
+highlight User1 guifg=#2e3440 guibg=#d8dee9
+highlight User2 guifg=#d8dee9 guibg=#5e81ac
+highlight User3 guifg=#5e81ac guibg=#3b4252
+highlight User4 guifg=#d8dee9 guibg=#3b4252
 
 
 " sourround
