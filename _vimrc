@@ -12,7 +12,7 @@ let g:mapleader=" "
 set autoread
 set belloff=all
 set confirm
-set grepprg=rg\ --vimgrep\ --smart-case\ --no-heading\ --hidden
+set grepprg=rg\ --vimgrep\ --smart-case\ --no-heading
 set hidden
 set list
 set listchars=tab:»\ ,trail:·
@@ -159,11 +159,10 @@ nnoremap <silent><nowait><Leader>ot :call <sid>GetRecentClose()<cr>
 
 " Plugins
 " auto pop complete menu
-inoremap <silent><expr>/ complete_info(["selected"])["selected"]!=-1&&getline(line('.'))[col('.')-2]=='/'?
-            \ "\<bs>/\<c-x>\<c-f>":
-            \ "/\<c-x>\<c-f>"
-let g:cmpX=-1
-let g:cmpY=-1
+" inoremap <silent><expr>/ complete_info(["selected"])["selected"]!=-1&&getline(line('.'))[col('.')-2]=='/'?
+            " \ "\<bs>/\<c-x>\<c-f>":
+            " \ "/\<c-x>\<c-f>"
+let g:cmpX=-1|let g:cmpY=-1
 function! s:feed_popup()
     if getline('.')[col('.')-1]=='/'|return|endif
     let x = col('.') - 1|let y = line('.') - 1
@@ -179,6 +178,7 @@ endfunction
 augroup Complete
     au!
     au CursorMovedI * nested call s:feed_popup()
+    au FileType text setlocal spell|setlocal nospell
 augroup END
 
 
