@@ -12,10 +12,12 @@ let g:mapleader=" "
 set autoread
 set belloff=all
 set confirm
+set grepprg=rg\ --vimgrep\ --smart-case\ --no-heading\ --hidden
 set hidden
 set list
 set listchars=tab:»\ ,trail:·
 set mouse=a
+set path+=**
 set scrolloff=8
 set sidescrolloff=16
 set splitbelow
@@ -71,9 +73,16 @@ set softtabstop=4
 set tabstop=4
 
 " Kepmaps
+nnoremap <Leader>ow :tabe<CR>:Explore<CR>
+nnoremap <Leader>ff :find<space>
+nnoremap <Leader>fg :grep<space>
+
+nnoremap <silent><Leader>qf :copen<CR>
+nnoremap <silent><Leader>pd :cprev<CR>
+nnoremap <silent><Leader>nd :cnext<CR>
+
 nnoremap <silent><C-h> :tabp<CR>
 nnoremap <silent><C-l> :tabn<CR>
-nnoremap <Leader>ow :tabe<CR>:Explore<CR>
 " nnoremap <silent><Leader>bh :bn<CR>
 " nnoremap <silent><Leader>bl :bp<CR>
 nnoremap <silent><Leader>bw :bd<CR>
@@ -127,7 +136,7 @@ vnoremap > >gv
 augroup ReadPost
     au!
     " autocmd QuickFixCmdPost * copen
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | execute "normal! zz" | endif "自动定位上次编辑位置
+    " autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | execute "normal! zz" | endif "自动定位上次编辑位置
     autocmd BufDelete * if expand('%:p')!=''&& &bt==""|let g:map_recent_close[expand('%:p')] =
         \{'lnum':line('.'),'col':col('.'),'text':'close at '.strftime("%H:%M"),'time':localtime()}
         \|endif
@@ -227,7 +236,7 @@ set statusline+=%r
 set statusline+=%h
 set statusline+=%w
 set statusline+=%=
-set statusline+=%4*%P\ \ 
+set statusline+=%P\ \ 
 set statusline+=%1*\ %l-%c\ 
 
 highlight User1 guifg=#2e3440 guibg=#d8dee9
