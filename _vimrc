@@ -72,6 +72,11 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
+" For Verilog
+au BufRead,BufNewFile *.sv set filetype=systemverilog
+au BufRead,BufNewFile *.v  set filetype=verilog
+
+
 " Kepmaps
 nnoremap <Leader>ow :tabe<CR>:Explore<CR>
 nnoremap <Leader>ff :find<space>
