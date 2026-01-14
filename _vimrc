@@ -241,8 +241,8 @@ set statusline+=%1*\ %l-%c\
 
 highlight User1 guifg=#2e3440 guibg=#d8dee9
 highlight User2 guifg=#d8dee9 guibg=#5e81ac
-highlight User3 guifg=#5e81ac guibg=#3b4252
-highlight User4 guifg=#d8dee9 guibg=#3b4252
+highlight User3 guifg=#5e81ac guibg=#4c566a
+highlight User4 guifg=#d8dee9 guibg=#4c566a
 
 
 " sourround
@@ -346,6 +346,7 @@ func! s:Backspace(mode)
         return "\<bs>"
     endif
 endfunc
+
 
 " Use the internal diff if available.
 " Otherwise use the special 'diffexpr' for Windows.
