@@ -32,8 +32,9 @@ set background=dark
 set termguicolors
 set t_Co=256
 " let g:gruvbox_contrast_dark="soft"
+" let g:gruvbox_transparent_bg=1
 " colorscheme gruvbox
-" colorscheme nord
+colorscheme nord
 " colorscheme iceberg
 syntax on
 set cmdheight=1
