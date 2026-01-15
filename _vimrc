@@ -29,9 +29,12 @@ filetype plugin indent on
 
 " Appear
 set background=dark
+set termguicolors
+set t_Co=256
 " let g:gruvbox_contrast_dark="soft"
 " colorscheme gruvbox
-colorscheme nord
+" colorscheme nord
+" colorscheme iceberg
 syntax on
 set cmdheight=1
 set cursorline
@@ -44,11 +47,11 @@ set showcmd
 set showmode
 set showtabline=2
 set title
-set termguicolors
-set t_Co=256
+
 
 " Edit
 set clipboard+=unnamed
+set complete=.,w,b,o
 set completeopt=menuone,preview,noinsert
 set shortmess+=c
 autocmd FileType * setlocal formatoptions-=r formatoptions-=o
@@ -78,6 +81,8 @@ au BufRead,BufNewFile *.v  set filetype=verilog
 
 
 " Kepmaps
+nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+
 nnoremap <Leader>ow :tabe<CR>:Explore<CR>
 nnoremap <Leader>ff :find<space>
 nnoremap <Leader>fg :grep<space>
@@ -136,6 +141,11 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 
+cnoremap <c-n> <down>
+cnoremap <c-p> <up>
+
+" iabbrev
+iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 
 " Autocmd
 augroup ReadPost
