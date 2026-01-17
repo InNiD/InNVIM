@@ -30,11 +30,14 @@ filetype plugin indent on
 " Appear
 set background=dark
 set termguicolors
+" let g:everforest_background="soft"
+" let g:everforest_transparent_background=1
+" colorscheme everforest
 " let g:gruvbox_contrast_dark="soft"
 " let g:gruvbox_transparent_bg=1
 " colorscheme gruvbox
-colorscheme nord
-" colorscheme iceberg
+colorscheme iceberg
+" colorscheme nord
 syntax on
 set cmdheight=1
 set cursorline
@@ -60,6 +63,13 @@ set noundofile
 set showmatch
 set wildoptions=pum
 set virtualedit=block
+
+if has("autocmd") && exists("+omnifunc")
+autocmd Filetype *
+        \    if &omnifunc == "" |
+        \        setlocal omnifunc=syntaxcomplete#Complete |
+        \    endif
+endif
 
 " Search
 set incsearch
@@ -147,28 +157,28 @@ cnoremap <c-p> <up>
 iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 
 " Autocmd
-augroup ReadPost
-    au!
+" augroup ReadPost
+    " au!
     " autocmd QuickFixCmdPost * copen
     " autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | execute "normal! zz" | endif "自动定位上次编辑位置
-    autocmd BufDelete * if expand('%:p')!=''&& &bt==""|let g:map_recent_close[expand('%:p')] =
-        \{'lnum':line('.'),'col':col('.'),'text':'close at '.strftime("%H:%M"),'time':localtime()}
-        \|endif
-augroup END
+    " autocmd BufDelete * if expand('%:p')!=''&& &bt==""|let g:map_recent_close[expand('%:p')] =
+        " \{'lnum':line('.'),'col':col('.'),'text':'close at '.strftime("%H:%M"),'time':localtime()}
+        " \|endif
+" augroup END
 " 打开最近关闭的buffer
-let g:map_recent_close={}
-func! s:GetRecentClose()
-    let s:list=[]
-    for [key,value] in items(g:map_recent_close)
-        let value['filename']=key
-        call insert(s:list,value)
-    endfor
-    let s:func={m1,m2 -> m1['time']>m2['time']?-1:1}
-    call sort(s:list,s:func)
-    call setqflist(s:list,'r')
-    copen
-endfunc
-nnoremap <silent><nowait><Leader>ot :call <sid>GetRecentClose()<cr>
+" let g:map_recent_close={}
+" func! s:GetRecentClose()
+    " let s:list=[]
+    " for [key,value] in items(g:map_recent_close)
+        " let value['filename']=key
+        " call insert(s:list,value)
+    " endfor
+    " let s:func={m1,m2 -> m1['time']>m2['time']?-1:1}
+    " call sort(s:list,s:func)
+    " call setqflist(s:list,'r')
+    " copen
+" endfunc
+" nnoremap <silent><nowait><Leader>ot :call <sid>GetRecentClose()<cr>
 
 
 " Plugins
@@ -241,7 +251,7 @@ if g:status_git_branch==""
     call job_start("git rev-parse --abbrev-ref HEAD",{"out_cb":"GitBranchShow"})
 endif
 
-set statusline=%1*\ %{g:status_git_branch}
+set statusline=%1*\ %{g:status_git_branch}
 set statusline+=%2*\ %f\ 
 set statusline+=%3*
 set statusline+=%4*\ %y
@@ -253,10 +263,29 @@ set statusline+=%=
 set statusline+=%P\ \ 
 set statusline+=%1*\ %l-%c\ 
 
-highlight User1 guifg=#2e3440 guibg=#d8dee9
-highlight User2 guifg=#d8dee9 guibg=#5e81ac
-highlight User3 guifg=#5e81ac guibg=#4c566a
-highlight User4 guifg=#d8dee9 guibg=#4c566a
+" everforest
+" highlight User1 guifg=#232a2e guibg=#a7c080
+" highlight User2 guifg=#a7c080 guibg=#48584e
+" highlight User3 guifg=#48584e guibg=#3c4841
+" highlight User4 guifg=#a7c080 guibg=#3c4841
+
+" gruvbox
+" highlight User1 guifg=#3c3836 guibg=#fbf1c7
+" highlight User2 guifg=#fbf1c7 guibg=#928374
+" highlight User3 guifg=#928374 guibg=#504945
+" highlight User4 guifg=#fbf1c7 guibg=#504945
+
+" iceberg
+highlight User1 guifg=#161821 guibg=#818596
+highlight User2 guifg=#818596 guibg=#2a3158
+highlight User3 guifg=#2a3158 guibg=#1e2132
+highlight User4 guifg=#818596 guibg=#1e2132
+
+" nord
+" highlight User1 guifg=#2e3440 guibg=#d8dee9
+" highlight User2 guifg=#d8dee9 guibg=#5e81ac
+" highlight User3 guifg=#5e81ac guibg=#4c566a
+" highlight User4 guifg=#d8dee9 guibg=#4c566a
 
 
 " sourround
