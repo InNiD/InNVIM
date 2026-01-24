@@ -11,31 +11,31 @@ return {
             }
         }
     },
-    config = function (_, opts)
-        require("mason").setup(opts)
-        local registry = require "mason-registry"
-
-        local function setup(name, config)
-            local success, package = pcall(registry.get_package, name)
-            if success and not package:is_installed() then
-                package:install()
-            end
-            -- config.on_attach = function (client)
-            --     client.server_capabilities.documentFormattingProvider = false
-            --     client.server_capabilities.documentRangeFormattingProvider = false
-            -- end
-            vim.lsp.config(name, config)
-        end
-
-        setup(
-            "verible",
-            {
-                cmd = { "verible-verilog-ls" },
-                filetypes = { "systemverilog", "verilog" },
-                root_markers = { ".git" },
-            }
-        )
-
-        vim.lsp.enable({ "verible" })
-    end,
+    -- config = function (_, opts)
+    --     require("mason").setup(opts)
+    --     local registry = require "mason-registry"
+    --
+    --     local function setup(name, config)
+    --         local success, package = pcall(registry.get_package, name)
+    --         if success and not package:is_installed() then
+    --             package:install()
+    --         end
+    --         -- config.on_attach = function (client)
+    --         --     client.server_capabilities.documentFormattingProvider = false
+    --         --     client.server_capabilities.documentRangeFormattingProvider = false
+    --         -- end
+    --         vim.lsp.config(name, config)
+    --     end
+    --
+    --     setup(
+    --         "verible",
+    --         {
+    --             cmd = { "verible-verilog-ls" },
+    --             filetypes = { "systemverilog", "verilog" },
+    --             root_markers = { ".git" },
+    --         }
+    --     )
+    --
+    --     vim.lsp.enable({ "verible" })
+    -- end,
 }
