@@ -18,10 +18,11 @@ vim.opt.cursorline = true
 vim.opt.laststatus = 3
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.showmode = false -- don't need the "-- INSERT --" mode hint
+vim.opt.showmode = false
+vim.opt.showtabline = 2
 vim.opt.signcolumn = "yes"
 vim.opt.title = true
-vim.opt.termguicolors = true -- enable 24-bit RGB color in the TUI
+vim.opt.termguicolors = true
 vim.opt.winborder = "rounded"
 -- vim.opt.colorcolumn = "80"
 

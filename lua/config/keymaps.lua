@@ -6,7 +6,6 @@ local opts = {
 -- All mode --
 --------------
 
--- Map <A-j>, <A-k>, <A-h>, <A-l> to navigate between windows in any modes
 vim.keymap.set({ "n" }, "<A-h>", "<C-w>h", opts)
 vim.keymap.set({ "n" }, "<A-j>", "<C-w>j", opts)
 vim.keymap.set({ "n" }, "<A-k>", "<C-w>k", opts)
@@ -16,14 +15,11 @@ vim.keymap.set({ "t", "i" }, "<A-j>", "<C-\\><C-n><C-w>ji", opts)
 vim.keymap.set({ "t", "i" }, "<A-k>", "<C-\\><C-n><C-w>ki", opts)
 vim.keymap.set({ "t", "i" }, "<A-l>", "<C-\\><C-n><C-w>li", opts)
 
--- 分屏和关闭分屏
 vim.keymap.set({ "n", "i", "v", "t"}, "<A-->", "<Cmd>split<CR>", opts)
 vim.keymap.set({ "n", "i", "v", "t"}, "<A-\\>", "<Cmd>vsplit<CR>", opts)
 vim.keymap.set({ "n", "i", "v", "t"}, "<A-w>", "<Cmd>close<CR>", opts)
 vim.keymap.set({ "n", "i", "v", "t"}, "<A-o>", "<Cmd>only<CR>", opts)
 
--- Resize with arrows
--- delta: 2 lines
 vim.keymap.set({ "n", "i", "v", "t"}, "<A-Up>", "<Cmd>resize +2<CR>", opts)
 vim.keymap.set({ "n", "i", "v", "t"}, "<A-Down>", "<Cmd>resize -2<CR>", opts)
 vim.keymap.set({ "n", "i", "v", "t"}, "<A-Left>", "<Cmd>vertical resize -2<CR>", opts)
@@ -33,7 +29,6 @@ vim.keymap.set({ "n", "i", "v", "t"}, "<A-Right>", "<Cmd>vertical resize +2<CR>"
 -- Normal mode --
 -----------------
 
--- 使用x或s删除文本时不将删除内容添加到剪切板
 vim.keymap.set("n", "x", '"_x', opts)
 vim.keymap.set("n", "s", '"_s', opts)
 
@@ -47,11 +42,9 @@ vim.keymap.set("i", "jk", "<Esc>", opts)
 -- Visual mode --
 -----------------
 
--- 使用J和K移动选择的内容
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
--- 缩进后保持visual模式而不是变回normal模式
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 

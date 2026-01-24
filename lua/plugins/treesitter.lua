@@ -3,7 +3,6 @@ return {
     branch = "main",
     lazy = false,
     build = ":TSUpdate",
-
     config = function()
         local pattern = {
             "systemverilog", "markdown", "markdown_inline", "html", "latex", "c", "cpp", "python",

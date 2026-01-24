@@ -1,5 +1,5 @@
 return {
-    'stevearc/conform.nvim',
+    "stevearc/conform.nvim",
     version = "*",
     opts = {
         formatters_by_ft = {
@@ -20,6 +20,7 @@ return {
             function()
                 require("conform").format({ async = true, lsp_fallback = true })
             end,
+            noremap = true,
         }
     }
 }

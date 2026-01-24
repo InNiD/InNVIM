@@ -2,7 +2,7 @@ return {
     "nvimtools/none-ls.nvim",
     enabled = false,
     version = "*",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim", },
     config = function()
         local registry = require "mason-registry"
         local function setup(name)
@@ -32,6 +32,7 @@ return {
                 vim.lsp.buf.format(format_option)
             end,
             mode = { "n", "v" },
+            noremap = true,
         },
     },
 }
