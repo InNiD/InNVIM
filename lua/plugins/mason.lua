@@ -11,8 +11,8 @@ return {
             }
         }
     },
-    -- config = function (_, opts)
-    --     require("mason").setup(opts)
+    config = function (_, opts)
+        require("mason").setup(opts)
     --     local registry = require "mason-registry"
     --
     --     local function setup(name, config)
@@ -36,6 +36,6 @@ return {
     --         }
     --     )
     --
-    --     vim.lsp.enable({ "verible" })
-    -- end,
+        vim.lsp.enable({ "clangd", "verible" })
+    end,
 }
