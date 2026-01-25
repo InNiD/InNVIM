@@ -101,8 +101,8 @@ nnoremap <Leader>ff :find<space>
 nnoremap <Leader>fg :grep<space>
 
 nnoremap <silent><Leader>qf :copen<CR>
-nnoremap <silent><Leader>pd :cprev<CR>
-nnoremap <silent><Leader>nd :cnext<CR>
+nnoremap <silent><Leader>pc :cprev<CR>
+nnoremap <silent><Leader>nc :cnext<CR>
 
 nnoremap <silent><C-h> :tabp<CR>
 nnoremap <silent><C-l> :tabn<CR>
