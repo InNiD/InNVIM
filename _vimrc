@@ -41,6 +41,7 @@ colorscheme iceberg
 syntax on
 set cmdheight=1
 set cursorline
+set cursorcolumn
 let g:netrw_liststyle = 3
 set laststatus=2
 set number
@@ -50,6 +51,9 @@ set showcmd
 set showmode
 set showtabline=2
 set title
+" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+" autocmd vimenter * hi NonText guibg=NONE ctermbg=NONE
+" autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Edit
 set clipboard+=unnamed
