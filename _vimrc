@@ -93,7 +93,7 @@ au BufRead,BufNewFile *.sv set filetype=systemverilog
 au BufRead,BufNewFile *.v  set filetype=verilog
 
 
-" Kepmaps
+" Keymaps
 nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
 nnoremap <Leader>ow :tabe<CR>:Explore<CR>
