@@ -48,10 +48,18 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
+------------------
+-- Command mode --
+------------------
+
+vim.keymap.set("c", "<C-p>", "<up>")
+vim.keymap.set("c", "<C-n>", "<down>")
+
 -------------------
 -- Terminal mode --
 -------------------
 
 -- Use <Esc> to exit terminal mode
--- vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
 
