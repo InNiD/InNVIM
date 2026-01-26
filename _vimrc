@@ -2,8 +2,8 @@
 " source $VIMRUNTIME/vimrc_example.vim
 
 " Language
-" set langmenu=none
-language en
+" language en
+let $LANG = 'en'
 
 " Others
 set nocompatible
@@ -156,6 +156,15 @@ vnoremap > >gv
 
 cnoremap <c-n> <down>
 cnoremap <c-p> <up>
+
+cnoremap <c-h> <left>
+cnoremap <c-l> <right>
+cnoremap <c-b> <S-left>
+cnoremap <c-w> <S-right>
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
+tnoremap <esc> <C-\><C-n>
 
 " iabbrev
 iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
