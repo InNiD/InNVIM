@@ -56,7 +56,7 @@ set title
 " autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Edit
-set clipboard=unnamedplus
+set clipboard=unnamed
 set complete=.,w,b,o
 set completeopt=menuone,preview,noinsert
 set shortmess+=c
@@ -65,6 +65,7 @@ set nobackup
 set noswapfile
 set noundofile
 set showmatch
+set wildmenu
 set wildoptions=pum
 set virtualedit=block
 
