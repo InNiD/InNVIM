@@ -55,6 +55,13 @@ vim.keymap.set("v", ">", ">gv", opts)
 vim.keymap.set("c", "<C-p>", "<up>")
 vim.keymap.set("c", "<C-n>", "<down>")
 
+vim.keymap.set("c", "<C-h>", "<left>")
+vim.keymap.set("c", "<C-l>", "<right>")
+vim.keymap.set("c", "<C-b>", "<S-left>")
+vim.keymap.set("c", "<C-w>", "<S-right>")
+vim.keymap.set("c", "<C-a>", "<home>")
+vim.keymap.set("c", "<C-e>", "<end>")
+
 -------------------
 -- Terminal mode --
 -------------------

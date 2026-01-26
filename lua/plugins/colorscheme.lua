@@ -9,7 +9,7 @@ return {
             -- latte, frappe, macchiato, mocha
             flavour = "frappe",
             auto_integrations = true,
-            -- transparent_background = true,
+            transparent_background = true,
             term_colors = true,
         },
         config = function(_, opts)
