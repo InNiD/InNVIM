@@ -1,6 +1,4 @@
 -- Others
-vim.g.mapleader = " "
--- vim.g.maplocalleader = "\\"
 vim.opt.autoread = true
 vim.opt.confirm = true
 vim.opt.list = true -- Show <tab> and trailing spaces

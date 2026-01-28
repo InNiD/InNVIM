@@ -32,6 +32,8 @@ vim.keymap.set({ "n", "i", "v", "t"}, "<A-Right>", "<Cmd>vertical resize +2<CR>"
 vim.keymap.set("n", "x", '"_x', opts)
 vim.keymap.set("n", "s", '"_s', opts)
 
+vim.keymap.set("n", "<leader>m", ":<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>", opts)
+
 -----------------
 -- INSERT mode --
 -----------------
