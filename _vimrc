@@ -95,12 +95,20 @@ au BufRead,BufNewFile *.v  set filetype=verilog
 
 
 " Keymaps
-nnoremap <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+" change reg
+nnoremap <leader>cr  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
+" explore
 nnoremap <Leader>ow :tabe<CR>:Explore<CR>
+
+" find
 nnoremap <Leader>ff :find<space>
 nnoremap <Leader>fg :grep<space>
 
+" lazygit
+nnoremap <leader>lg :tabe<CR>:call term_start("lazygit", {"curwin": 1, "term_finish": "close"})<CR>
+
+" quickfix
 nnoremap <silent><Leader>qf :copen<CR>
 nnoremap <silent><Leader>pc :cprev<CR>
 nnoremap <silent><Leader>nc :cnext<CR>
