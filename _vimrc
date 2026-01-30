@@ -41,7 +41,7 @@ colorscheme iceberg
 syntax on
 set cmdheight=1
 set cursorline
-set cursorcolumn
+" set cursorcolumn
 let g:netrw_liststyle = 3
 set laststatus=2
 set number
@@ -99,7 +99,7 @@ au BufRead,BufNewFile *.v  set filetype=verilog
 nnoremap <leader>cr  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
 " explore
-nnoremap <Leader>ow :tabe<CR>:Explore<CR>
+nnoremap <silent><Leader>ow :tabe<CR>:Explore<CR>
 
 " find
 nnoremap <Leader>ff :find<space>
@@ -177,6 +177,7 @@ tnoremap <esc> <C-\><C-n>
 
 " iabbrev
 iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
+iab x~ ~~~~~~~~~~~~~~~~
 
 " Autocmd
 " augroup ReadPost
