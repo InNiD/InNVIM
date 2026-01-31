@@ -176,8 +176,11 @@ cnoremap <c-e> <end>
 tnoremap <esc> <C-\><C-n>
 
 " iabbrev
-iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
-iab x~ ~~~~~~~~~~~~~~~~
+iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<CR>
+iab 1~ ~~~~~~~~~~~~~~~~
+iab 2~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+iab 1- ----------------
+iab 2- --------------------------------
 
 " Autocmd
 " augroup ReadPost
