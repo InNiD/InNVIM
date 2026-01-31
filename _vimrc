@@ -3,7 +3,7 @@
 
 " Language
 " language en
-let $LANG = 'en'
+let $LANG = "en"
 
 " Others
 set nocompatible
@@ -42,13 +42,13 @@ syntax on
 set cmdheight=1
 set cursorline
 " set cursorcolumn
-" let g:netrw_altv = 1
-let g:netrw_banner = 0
-" let g:netrw_browse_split = 4
-" let g:netrw_keepdir = 0
-" let g:netrw_liststyle = 3
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-" let g:netrw_localcopydircmd = 'cp -r'
+" let g:netrw_altv=1
+let g:netrw_banner=0
+" let g:netrw_browse_split=4
+" let g:netrw_keepdir=0
+let g:netrw_liststyle=1
+let g:netrw_list_hide='\(^\|\s\s\)\zs\.\S\+'
+" let g:netrw_localcopydircmd='cp -r'
 " let g:netrw_winsize = 20
 set laststatus=2
 set number
