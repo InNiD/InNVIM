@@ -414,7 +414,7 @@ if g:status_git_branch==""
 endif
 
 set statusline=%1*\ %{g:status_git_branch}
-set statusline+=%2*\ %f\ 
+set statusline+=%2*\ %t\ 
 set statusline+=%3*
 set statusline+=%4*\ %y
 set statusline+=%m
