@@ -36,7 +36,10 @@ vim.diagnostic.config({
     virtual_text = true,
     update_in_insert = true,
 })
+vim.opt.matchpairs:append("<:>")
+vim.opt.swapfile = false
 vim.opt.virtualedit = "block"
+vim.opt.whichwrap:append("h,l")
 
 -- Search
 vim.opt.hlsearch = false -- do not highlight matches
