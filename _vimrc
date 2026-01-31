@@ -115,7 +115,8 @@ nnoremap <silent><Leader>or :Rexplore<CR>
 
 " find
 nnoremap <Leader>ff :find<space>
-nnoremap <Leader>fg :grep<space>
+nnoremap <Leader>fg :vimgrep<space>
+" nnoremap <Leader>fg :grep<space>
 
 " lazygit
 nnoremap <leader>lg :tabe<CR>:call term_start("lazygit", {"curwin": 1, "term_finish": "close"})<CR>
