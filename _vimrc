@@ -42,14 +42,21 @@ syntax on
 set cmdheight=1
 set cursorline
 " set cursorcolumn
-let g:netrw_liststyle = 3
+" let g:netrw_altv = 1
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_keepdir = 0
+" let g:netrw_liststyle = 3
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+" let g:netrw_localcopydircmd = 'cp -r'
+let g:netrw_winsize = 20
 set laststatus=2
 set number
 set relativenumber
 set ruler
 set showcmd
 set showmode
-set showtabline=2
+" set showtabline=2
 set title
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 " autocmd vimenter * hi NonText guibg=NONE ctermbg=NONE
@@ -59,15 +66,17 @@ set title
 set clipboard=unnamed
 set complete=.,w,b,o
 set completeopt=menuone,preview,noinsert
-set shortmess+=c
 autocmd FileType * setlocal formatoptions-=r formatoptions-=o
+set matchpairs+=<:>
 set nobackup
 set noswapfile
 set noundofile
+set shortmess+=c
 set showmatch
+set virtualedit=block
+set whichwrap+=h,l
 set wildmenu
 set wildoptions=pum
-set virtualedit=block
 
 if has("autocmd") && exists("+omnifunc")
 autocmd Filetype *
@@ -99,7 +108,8 @@ au BufRead,BufNewFile *.v  set filetype=verilog
 nnoremap <leader>cr  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
 " explore
-nnoremap <silent><Leader>ow :tabe<CR>:Explore<CR>
+nnoremap <silent><Leader>ow :Lexplore<CR>
+nnoremap <silent><leader>oc :Lexplore %:p:h<CR>
 
 " find
 nnoremap <Leader>ff :find<space>
@@ -113,13 +123,13 @@ nnoremap <silent><Leader>qf :copen<CR>
 nnoremap <silent><Leader>pc :cprev<CR>
 nnoremap <silent><Leader>nc :cnext<CR>
 
-nnoremap <silent><C-h> :tabp<CR>
-nnoremap <silent><C-l> :tabn<CR>
-" nnoremap <silent><Leader>bh :bn<CR>
-" nnoremap <silent><Leader>bl :bp<CR>
+" nnoremap <silent><C-h> :tabp<CR>
+" nnoremap <silent><C-l> :tabn<CR>
+nnoremap <silent><C-h> :bp<CR>
+nnoremap <silent><C-l> :bn<CR>
 nnoremap <silent><Leader>bw :bd<CR>
-nnoremap <silent><Leader>bo :tabo<CR>
-nnoremap <Leader>bp :buffers<CR>:b<space>
+nnoremap <silent><Leader>to :tabo<CR>
+nnoremap <Leader>fb :buffers<CR>:b<space>
 nnoremap <Leader>bc :buffers<CR>:bd<space>
 
 nnoremap <A-h> <C-w>h
@@ -140,10 +150,10 @@ nnoremap s "_s
 nnoremap Y y$
 
 inoremap jk <esc>
-inoremap <silent><C-h> <C-\><C-n>:tabp<CR>i
-inoremap <silent><C-l> <C-\><C-n>:tabn<CR>i
-" inoremap <silent><C-h> <C-\><C-n>:bp<CR>i
-" inoremap <silent><C-h> <C-\><C-n>:bp<CR>i
+" inoremap <silent><C-h> <C-\><C-n>:tabp<CR>i
+" inoremap <silent><C-l> <C-\><C-n>:tabn<CR>i
+inoremap <silent><C-h> <C-\><C-n>:bp<CR>i
+inoremap <silent><C-h> <C-\><C-n>:bp<CR>i
 
 inoremap <A-h> <C-\><C-n><C-w>hi
 inoremap <A-j> <C-\><C-n><C-w>ji
@@ -225,9 +235,11 @@ inoremap <silent><cr> <c-r>=<sid>Enter()<cr>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
-cnoremap ( ()<left>
-cnoremap [ []<left>
-cnoremap { {}<left>
+inoremap < <><left>
+" cnoremap ( ()<left>
+" cnoremap [ []<left>
+" cnoremap { {}<left>
+" cnoremap < <><left>
 
 " jump
 func! s:Judge(ch,mode)
@@ -253,13 +265,13 @@ inoremap <expr><silent>> <sid>Judge('>','i')
 inoremap <expr><silent>) <sid>Judge(')','i')
 inoremap <expr><silent>} <sid>Judge('}','i')
 inoremap <expr><silent>] <sid>Judge(']','i')
-cnoremap <expr>" <sid>Judge('"','c')
-cnoremap <expr>` <sid>Judge('`','c')
-cnoremap <expr>' <sid>Judge("'",'c')
-cnoremap <expr>> <sid>Judge('>','c')
-cnoremap <expr>) <sid>Judge(')','c')
-cnoremap <expr>} <sid>Judge('}','c')
-cnoremap <expr>] <sid>Judge(']','c')
+" cnoremap <expr>" <sid>Judge('"','c')
+" cnoremap <expr>` <sid>Judge('`','c')
+" cnoremap <expr>' <sid>Judge("'",'c')
+" cnoremap <expr>> <sid>Judge('>','c')
+" cnoremap <expr>) <sid>Judge(')','c')
+" cnoremap <expr>} <sid>Judge('}','c')
+" cnoremap <expr>] <sid>Judge(']','c')
 " set backspace
 inoremap <expr><bs> <sid>Backspace('i')
 cnoremap <expr><bs> <sid>Backspace('c')
@@ -335,6 +347,29 @@ func! s:VisualComment() abort
 endfunc
 nnoremap <silent><nowait>gcc :call <sid>Commentary(line('.'))<cr>
 xnoremap <silent><nowait>gc  :call <sid>VisualComment()<cr>
+
+
+" netrw
+function! NetrwMapping()
+    nmap <buffer> H u
+    nmap <buffer> h -
+    nmap <buffer> l <CR>
+    nmap <silent><buffer> L <CR>:Lexplore<CR>
+    nmap <buffer> <Leader>oc :Lexplore<CR>
+    " nmap <buffer> . gh
+
+    " nmap <buffer> <TAB> mf
+    " nmap <buffer> <S-TAB> mF
+    " nmap <buffer> a d
+    " nmap <buffer> r R
+    " nmap <buffer> c mtmc
+    " nmap <buffer> x mtmm
+endfunction
+
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call NetrwMapping()
+augroup END
 
 
 " sourround
