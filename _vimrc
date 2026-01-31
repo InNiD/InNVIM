@@ -44,12 +44,12 @@ set cursorline
 " set cursorcolumn
 " let g:netrw_altv = 1
 let g:netrw_banner = 0
-let g:netrw_browse_split = 4
-let g:netrw_keepdir = 0
+" let g:netrw_browse_split = 4
+" let g:netrw_keepdir = 0
 " let g:netrw_liststyle = 3
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 " let g:netrw_localcopydircmd = 'cp -r'
-let g:netrw_winsize = 20
+" let g:netrw_winsize = 20
 set laststatus=2
 set number
 set relativenumber
@@ -108,8 +108,10 @@ au BufRead,BufNewFile *.v  set filetype=verilog
 nnoremap <leader>cr  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
 " explore
-nnoremap <silent><Leader>ow :Lexplore<CR>
-nnoremap <silent><leader>oc :Lexplore %:p:h<CR>
+nnoremap <silent><Leader>ow :Explore .<CR>
+" nnoremap <silent><leader>oc :Explore %:p:h<CR>
+nnoremap <silent><Leader>oc :Explore<CR>
+nnoremap <silent><Leader>or :Rexplore<CR>
 
 " find
 nnoremap <Leader>ff :find<space>
@@ -354,8 +356,7 @@ function! NetrwMapping()
     nmap <buffer> H u
     nmap <buffer> h -
     nmap <buffer> l <CR>
-    nmap <silent><buffer> L <CR>:Lexplore<CR>
-    nmap <buffer> <Leader>oc :Lexplore<CR>
+    nmap <nowait><silent><buffer> q :bp<CR>
     " nmap <buffer> . gh
 
     " nmap <buffer> <TAB> mf
