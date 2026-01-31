@@ -72,3 +72,13 @@ vim.keymap.set("c", "<C-e>", "<end>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 
+-------------
+-- iabbrev --
+-------------
+
+vim.cmd("iab xdate <C-r>=strftime('%d/%m/%y %H:%M:%S')<CR>")
+vim.cmd("iab 1~ ~~~~~~~~~~~~~~~~")
+vim.cmd("iab 2~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+vim.cmd("iab 1- ----------------")
+vim.cmd("iab 2- --------------------------------")
+

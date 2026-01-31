@@ -13,7 +13,7 @@ vim.opt.wrap = false
 -- Appear
 vim.opt.cmdheight = 1
 vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+-- vim.opt.cursorcolumn = true
 vim.opt.laststatus = 3
 vim.opt.number = true
 vim.opt.relativenumber = true
