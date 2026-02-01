@@ -40,6 +40,8 @@ vim.keymap.set("n", "<leader>cr", ":<c-u><c-r><c-r>='let @'. v:register .' = '. 
 
 vim.keymap.set("i", "jk", "<Esc>", opts)
 
+vim.keymap.set("i", "<C-j>", "<right>", opts)
+
 -----------------
 -- Visual mode --
 -----------------

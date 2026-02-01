@@ -21,7 +21,7 @@ return {
         require("bufferline").setup(opts)
         vim.keymap.set({ "n", "i", "v", "t" }, "<C-h>", "<Cmd>BufferLineCyclePrev<CR>", { silent = true })
         vim.keymap.set({ "n", "i", "v", "t" }, "<C-l>", "<Cmd>BufferLineCycleNext<CR>", { silent = true })
-        vim.keymap.set("n", "<leader>bw", ":bdelete<CR>", { silent = true })
+        vim.keymap.set("n", "<C-w>", ":bdelete<CR>", { silent = true, nowait = true })
         vim.keymap.set("n", "<leader>bo", ":BufferLineCloseOthers<CR>", { silent = true })
         vim.keymap.set("n", "<leader>bp", ":BufferLinePick<CR>", { silent = true })
         vim.keymap.set("n", "<leader>bc", ":BufferLinePickClose<CR>", { silent = true })
