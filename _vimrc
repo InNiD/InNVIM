@@ -130,7 +130,7 @@ nnoremap <silent><Leader>nc :cnext<CR>
 " nnoremap <silent><C-l> :tabn<CR>
 nnoremap <silent><C-h> :bp<CR>
 nnoremap <silent><C-l> :bn<CR>
-nnoremap <silent><Leader>bw :bd<CR>
+nnoremap <silent><C-w> :bd<CR>
 nnoremap <silent><Leader>to :tabo<CR>
 nnoremap <Leader>fb :buffers<CR>:b<space>
 nnoremap <Leader>bc :buffers<CR>:bd<space>
@@ -156,7 +156,7 @@ inoremap jk <esc>
 " inoremap <silent><C-h> <C-\><C-n>:tabp<CR>i
 " inoremap <silent><C-l> <C-\><C-n>:tabn<CR>i
 inoremap <silent><C-h> <C-\><C-n>:bp<CR>i
-inoremap <silent><C-h> <C-\><C-n>:bp<CR>i
+inoremap <silent><C-l> <C-\><C-n>:bn<CR>i
 
 inoremap <A-h> <C-\><C-n><C-w>hi
 inoremap <A-j> <C-\><C-n><C-w>ji
@@ -170,6 +170,8 @@ inoremap <silent><A-Up> <C-\><C-n>:resize +2<CR>i
 inoremap <silent><A-Down> <C-\><C-n>:resize -2<CR>i
 inoremap <silent><A-Left> <C-\><C-n>:vertical resize -2<CR>i
 inoremap <silent><A-Right> <C-\><C-n>:vertical resize +2<CR>i
+
+inoremap <C-f> <right>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
