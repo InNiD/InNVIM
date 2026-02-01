@@ -5,7 +5,7 @@ vim.opt.list = true -- Show <tab> and trailing spaces
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.mouse = "a" -- allow the mouse to be used in nvim
 vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 16
+-- vim.opt.sidescrolloff = 16
 vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
 vim.opt.wrap = false
