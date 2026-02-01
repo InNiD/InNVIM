@@ -234,7 +234,7 @@ inoremap <silent><cr> <c-r>=<sid>Enter()<cr>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
-inoremap < <><left>
+" inoremap < <><left>
 " cnoremap ( ()<left>
 " cnoremap [ []<left>
 " cnoremap { {}<left>
@@ -259,7 +259,7 @@ func! s:Judge(ch,mode)
 endfunc
 inoremap <expr><silent>" <sid>Judge('"','i')
 inoremap <expr><silent>` <sid>Judge('`','i')
-inoremap <expr><silent>' <sid>Judge("'",'i')
+" inoremap <expr><silent>' <sid>Judge("'",'i')
 inoremap <expr><silent>> <sid>Judge('>','i')
 inoremap <expr><silent>) <sid>Judge(')','i')
 inoremap <expr><silent>} <sid>Judge('}','i')
@@ -273,7 +273,7 @@ inoremap <expr><silent>] <sid>Judge(']','i')
 " cnoremap <expr>] <sid>Judge(']','c')
 " set backspace
 inoremap <expr><bs> <sid>Backspace('i')
-cnoremap <expr><bs> <sid>Backspace('c')
+" cnoremap <expr><bs> <sid>Backspace('c')
 func! s:Backspace(mode)
     if a:mode!='c'
         let s:pair=getline('.')[col('.')-1]|let s:pair_l=getline('.')[col('.')-2]
