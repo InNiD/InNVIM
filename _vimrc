@@ -414,16 +414,29 @@ if g:status_git_branch==""
 endif
 
 set statusline=%1*\ %{g:status_git_branch}
-set statusline+=%2*\ %t\ 
-set statusline+=%3*
+
+set statusline+=%2*\ %t\ 
+" set statusline+=%2*\ %t\ 
+set statusline+=%3*
+" set statusline+=%3*
+
 set statusline+=%4*\ %y
 set statusline+=%m
 set statusline+=%r
 set statusline+=%h
 set statusline+=%w
 set statusline+=%=
-set statusline+=%P\ \ 
+
+set statusline+=%P\ \ 
+" set statusline+=%P\ \ 
+
 set statusline+=%1*\ %l-%c\ 
+
+" default
+" highlight User1 guifg=black guibg=white
+" highlight User2 guifg=white guibg=grey
+" highlight User3 guifg=grey guibg=black
+" highlight User4 guifg=white guibg=black
 
 " everforest
 " highlight User1 guifg=#232a2e guibg=#a7c080
