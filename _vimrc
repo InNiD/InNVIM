@@ -19,7 +19,7 @@ set listchars=tab:»\ ,trail:·
 set mouse=a
 set path+=**
 set scrolloff=8
-set sidescrolloff=16
+" set sidescrolloff=16
 set splitbelow
 set splitright
 set nowrap
@@ -417,10 +417,10 @@ endif
 
 set statusline=%1*\ %{g:status_git_branch}
 
-set statusline+=%2*\ %t\ 
-" set statusline+=%2*\ %t\ 
-set statusline+=%3*
-" set statusline+=%3*
+"set statusline+=%2*\ %t\ 
+set statusline+=%2*\ %t\ 
+"set statusline+=%3*
+set statusline+=%3*
 
 set statusline+=%4*\ %y
 set statusline+=%m
@@ -429,8 +429,8 @@ set statusline+=%h
 set statusline+=%w
 set statusline+=%=
 
-set statusline+=%P\ \ 
-" set statusline+=%P\ \ 
+"set statusline+=%P\ \ 
+set statusline+=%P\ \ 
 
 set statusline+=%1*\ %l-%c\ 
 
