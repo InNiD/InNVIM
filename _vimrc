@@ -171,7 +171,7 @@ inoremap <silent><A-Down> <C-\><C-n>:resize -2<CR>i
 inoremap <silent><A-Left> <C-\><C-n>:vertical resize -2<CR>i
 inoremap <silent><A-Right> <C-\><C-n>:vertical resize +2<CR>i
 
-inoremap <C-f> <right>
+inoremap <C-j> <right>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
