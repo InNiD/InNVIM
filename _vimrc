@@ -126,9 +126,6 @@ nnoremap <silent><Leader>qf :copen<CR>
 nnoremap <silent><Leader>pc :cprev<CR>
 nnoremap <silent><Leader>nc :cnext<CR>
 
-" terminal
-nnoremap <silent><leader>ot :tabe<CR>:term++curwin<CR>
-
 " nnoremap <silent><C-h> :tabp<CR>
 " nnoremap <silent><C-l> :tabn<CR>
 nnoremap <silent><C-h> :bp<CR>
