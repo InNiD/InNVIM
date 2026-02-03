@@ -119,12 +119,15 @@ nnoremap <Leader>fg :vimgrep<space>
 " nnoremap <Leader>fg :grep<space>
 
 " lazygit
-nnoremap <leader>lg :tabe<CR>:call term_start("lazygit", {"curwin": 1, "term_finish": "close"})<CR>
+nnoremap <silent><leader>lg :tabe<CR>:call term_start("lazygit", {"curwin": 1, "term_finish": "close"})<CR>
 
 " quickfix
 nnoremap <silent><Leader>qf :copen<CR>
 nnoremap <silent><Leader>pc :cprev<CR>
 nnoremap <silent><Leader>nc :cnext<CR>
+
+" terminal
+nnoremap <silent><leader>ot :tabe<CR>:term++curwin<CR>
 
 " nnoremap <silent><C-h> :tabp<CR>
 " nnoremap <silent><C-l> :tabn<CR>
@@ -190,7 +193,7 @@ cnoremap <c-w> <S-right>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
-tnoremap <esc> <C-\><C-n>
+tnoremap jk <C-\><C-n>
 
 " iabbrev
 iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<CR>
@@ -217,7 +220,7 @@ iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<CR>
     " call setqflist(s:list,'r')
     " copen
 " endfunc
-" nnoremap <silent><nowait><Leader>ot :call <sid>GetRecentClose()<cr>
+" nnoremap <silent><nowait><Leader>ob :call <sid>GetRecentClose()<cr>
 
 
 " Plugins
