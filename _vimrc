@@ -150,6 +150,8 @@ nnoremap <silent><A-Right> :vertical resize +2<CR>
 
 nnoremap x "_x
 nnoremap s "_s
+nnoremap <A-d> "_d
+nnoremap <A-c> "_c
 nnoremap Y y$
 
 inoremap jk <esc>
