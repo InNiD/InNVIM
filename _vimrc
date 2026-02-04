@@ -67,7 +67,7 @@ set clipboard=unnamed
 set complete=.,w,b,o
 set completeopt=menuone,preview,noinsert
 autocmd FileType * setlocal formatoptions-=r formatoptions-=o
-set matchpairs+=<:>
+" set matchpairs+=<:>
 set nobackup
 set noswapfile
 set noundofile
@@ -189,6 +189,11 @@ cnoremap <c-b> <S-left>
 cnoremap <c-w> <S-right>
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
+
+tnoremap <A-h> <C-\><C-n><C-w>hi
+tnoremap <A-j> <C-\><C-n><C-w>ji
+tnoremap <A-k> <C-\><C-n><C-w>ki
+tnoremap <A-l> <C-\><C-n><C-w>li
 
 tnoremap jk <C-\><C-n>
 
