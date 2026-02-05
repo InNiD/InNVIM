@@ -423,23 +423,31 @@ if g:status_git_branch==""
 endif
 
 set statusline=%1*\ %{g:status_git_branch}
-
-"set statusline+=%2*\ %t\ 
+" set statusline+=%2*\ %t\ 
 set statusline+=%2*\ %t\ 
-"set statusline+=%3*
+" set statusline+=%3*
 set statusline+=%3*
-
 set statusline+=%4*\ %y
 set statusline+=%m
 set statusline+=%r
 set statusline+=%h
 set statusline+=%w
 set statusline+=%=
-
-"set statusline+=%P\ \ 
+" set statusline+=%P\ \ 
 set statusline+=%P\ \ 
-
 set statusline+=%1*\ %l-%c\ 
+
+" without color version
+set statusline=\ %{g:status_git_branch}
+set statusline+=\ %t\ 
+set statusline+=\ %y
+set statusline+=%m
+set statusline+=%r
+set statusline+=%h
+set statusline+=%w
+set statusline+=%=
+set statusline+=%P\ \ 
+set statusline+=\ %l-%c\ 
 
 " default
 " highlight User1 guifg=black guibg=white
