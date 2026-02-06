@@ -30,13 +30,13 @@ filetype plugin indent on
 " Appear
 set background=dark
 set termguicolors
-" let g:everforest_background="soft"
+let g:everforest_background="soft"
 " let g:everforest_transparent_background=1
-" colorscheme everforest
+colorscheme everforest
 " let g:gruvbox_contrast_dark="soft"
 " let g:gruvbox_transparent_bg=1
 " colorscheme gruvbox
-colorscheme iceberg
+" colorscheme iceberg
 " colorscheme nord
 syntax on
 set cmdheight=1
@@ -152,8 +152,8 @@ nnoremap x "_x
 nnoremap s "_s
 nnoremap <A-d> "_d
 nnoremap <A-c> "_c
+nnoremap <A-x> i<space><esc>
 nnoremap Y y$
-nnoremap X i<space><esc>
 
 inoremap jk <esc>
 " inoremap <silent><C-h> <C-\><C-n>:tabp<CR>i
