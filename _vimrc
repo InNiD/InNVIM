@@ -153,6 +153,7 @@ nnoremap s "_s
 nnoremap <A-d> "_d
 nnoremap <A-c> "_c
 nnoremap Y y$
+nnoremap X i<space><esc>
 
 inoremap jk <esc>
 " inoremap <silent><C-h> <C-\><C-n>:tabp<CR>i
