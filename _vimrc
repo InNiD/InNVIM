@@ -181,20 +181,30 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 
-cnoremap <c-n> <down>
-cnoremap <c-p> <up>
+cnoremap <C-n> <down>
+cnoremap <C-p> <up>
 
-cnoremap <c-h> <left>
-cnoremap <c-l> <right>
-cnoremap <c-b> <S-left>
-cnoremap <c-w> <S-right>
-cnoremap <c-a> <home>
-cnoremap <c-e> <end>
+cnoremap <C-h> <left>
+cnoremap <C-l> <right>
+cnoremap <C-b> <S-left>
+cnoremap <C-w> <S-right>
+cnoremap <C-a> <home>
+cnoremap <C-e> <end>
 
+tnoremap <silent><C-h> <C-\><C-n>:bp<CR>i
+tnoremap <silent><C-l> <C-\><C-n>:bn<CR>i
 tnoremap <A-h> <C-\><C-n><C-w>hi
 tnoremap <A-j> <C-\><C-n><C-w>ji
 tnoremap <A-k> <C-\><C-n><C-w>ki
 tnoremap <A-l> <C-\><C-n><C-w>li
+tnoremap <silent><A--> <C-\><C-n>:split<CR>i
+tnoremap <silent><A-\> <C-\><C-n>:vsplit<CR>i
+tnoremap <silent><A-w> <C-\><C-n>:close<CR>i
+tnoremap <silent><A-o> <C-\><C-n>:only<CR>i
+tnoremap <silent><A-Up> <C-\><C-n>:resize +2<CR>i
+tnoremap <silent><A-Down> <C-\><C-n>:resize -2<CR>i
+tnoremap <silent><A-Left> <C-\><C-n>:vertical resize -2<CR>i
+tnoremap <silent><A-Right> <C-\><C-n>:vertical resize +2<CR>i
 
 tnoremap jk <C-\><C-n>
 
