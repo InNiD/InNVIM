@@ -92,6 +92,7 @@ set smartcase
 
 " Tab
 set autoindent
+set cindent
 set expandtab
 set shiftround
 set shiftwidth=4
@@ -215,7 +216,7 @@ iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<CR>
 " augroup ReadPost
     " au!
     " autocmd QuickFixCmdPost * copen
-    " autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | execute "normal! zz" | endif "自动定位上次编辑位置
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | execute "normal! zz" | endif "自动定位上次编辑位置
     " autocmd BufDelete * if expand('%:p')!=''&& &bt==""|let g:map_recent_close[expand('%:p')] =
         " \{'lnum':line('.'),'col':col('.'),'text':'close at '.strftime("%H:%M"),'time':localtime()}
         " \|endif
