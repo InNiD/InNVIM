@@ -30,6 +30,7 @@ filetype plugin indent on
 " Appear
 set background=dark
 set termguicolors
+" colorscheme catppuccin
 let g:everforest_background="soft"
 " let g:everforest_transparent_background=1
 colorscheme everforest
@@ -37,11 +38,14 @@ colorscheme everforest
 " let g:gruvbox_transparent_bg=1
 " colorscheme gruvbox
 " colorscheme iceberg
+" colorscheme lunaperche
 " colorscheme nord
+" colorscheme wildcharm
+" colorscheme zaibatsu
 syntax on
 set cmdheight=1
 set cursorline
-" set cursorcolumn
+set cursorcolumn
 " let g:netrw_altv=1
 let g:netrw_banner=0
 " let g:netrw_browse_split=4
