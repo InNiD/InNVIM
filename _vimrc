@@ -157,13 +157,13 @@ nnoremap x "_x
 nnoremap s "_s
 nnoremap <A-d> "_d
 nnoremap <A-c> "_c
-nnoremap <A-x> i<space><esc>
+nnoremap <A-x> i<space><Esc>
 nnoremap Y y$
 nnoremap H ^
 nnoremap L $
 
 
-inoremap jk <esc>
+inoremap jk <Esc>
 " inoremap <silent><C-h> <C-\><C-n>:tabp<CR>i
 " inoremap <silent><C-l> <C-\><C-n>:tabn<CR>i
 inoremap <silent><C-h> <C-\><C-n>:bp<CR>i
@@ -218,7 +218,7 @@ tnoremap <silent><A-Down> <C-\><C-n>:resize -2<CR>i
 tnoremap <silent><A-Left> <C-\><C-n>:vertical resize -2<CR>i
 tnoremap <silent><A-Right> <C-\><C-n>:vertical resize +2<CR>i
 
-tnoremap jk <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
 
 
 onoremap H ^
