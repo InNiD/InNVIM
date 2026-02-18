@@ -33,6 +33,10 @@ vim.keymap.set({ "i", "t" }, "<A-Down>", "<C-\\><C-n>:resize -2<CR>i", opts)
 vim.keymap.set({ "i", "t" }, "<A-Left>", "<C-\\><C-n>:vertical resize -2<CR>i", opts)
 vim.keymap.set({ "i", "t" }, "<A-Right>", "<C-\\><C-n>:vertical resize +2<CR>i", opts)
 
+
+vim.keymap.set({ "n", "x", "o" }, "H", "^", opts)
+vim.keymap.set({ "n", "x", "o" }, "L", "$", opts)
+
 -----------------
 -- Normal mode --
 -----------------
@@ -41,7 +45,7 @@ vim.keymap.set("n", "x", '"_x', opts)
 vim.keymap.set("n", "s", '"_s', opts)
 vim.keymap.set("n", "<A-d>", '"_d', opts)
 vim.keymap.set("n", "<A-c>", '"_c', opts)
-vim.keymap.set("n", "<A-x>", "i<space><esc>", opts)
+vim.keymap.set("n", "<A-x>", "i<space><Esc>", opts)
 
 vim.keymap.set("n", "<leader>cr", ":<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>", opts)
 
@@ -57,11 +61,11 @@ vim.keymap.set("i", "<C-j>", "<right>", opts)
 -- Visual mode --
 -----------------
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", opts)
 
-vim.keymap.set("v", "<", "<gv", opts)
-vim.keymap.set("v", ">", ">gv", opts)
+vim.keymap.set("x", "<", "<gv", opts)
+vim.keymap.set("x", ">", ">gv", opts)
 
 ------------------
 -- Command mode --
@@ -82,7 +86,7 @@ vim.keymap.set("c", "<C-e>", "<end>")
 -------------------
 
 -- Use <Esc> to exit terminal mode
-vim.keymap.set("t", "jk", "<C-\\><C-n>")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -------------
 -- iabbrev --
