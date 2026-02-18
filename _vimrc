@@ -159,6 +159,9 @@ nnoremap <A-d> "_d
 nnoremap <A-c> "_c
 nnoremap <A-x> i<space><esc>
 nnoremap Y y$
+nnoremap H ^
+nnoremap L $
+
 
 inoremap jk <esc>
 " inoremap <silent><C-h> <C-\><C-n>:tabp<CR>i
@@ -181,10 +184,14 @@ inoremap <silent><A-Right> <C-\><C-n>:vertical resize +2<CR>i
 
 inoremap <C-j> <right>
 
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-vnoremap < <gv
-vnoremap > >gv
+
+xnoremap J :m '>+1<CR>gv=gv
+xnoremap K :m '<-2<CR>gv=gv
+xnoremap < <gv
+xnoremap > >gv
+xnoremap H ^
+xnoremap L $
+
 
 cnoremap <C-n> <down>
 cnoremap <C-p> <up>
@@ -212,6 +219,11 @@ tnoremap <silent><A-Left> <C-\><C-n>:vertical resize -2<CR>i
 tnoremap <silent><A-Right> <C-\><C-n>:vertical resize +2<CR>i
 
 tnoremap jk <C-\><C-n>
+
+
+onoremap H ^
+onoremap L $
+
 
 " iabbrev
 iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<CR>
