@@ -31,15 +31,15 @@ filetype plugin indent on
 set background=dark
 set termguicolors
 " colorscheme catppuccin
-let g:everforest_background="soft"
+" let g:everforest_background="soft"
 " let g:everforest_transparent_background=1
-colorscheme everforest
+" colorscheme everforest
 " let g:gruvbox_contrast_dark="soft"
 " let g:gruvbox_transparent_bg=1
 " colorscheme gruvbox
 " colorscheme iceberg
 " colorscheme lunaperche
-" colorscheme nord
+colorscheme nord
 " colorscheme wildcharm
 " colorscheme zaibatsu
 syntax on
@@ -164,10 +164,6 @@ nnoremap L $
 
 
 inoremap jk <Esc>
-" inoremap <silent><C-h> <C-\><C-n>:tabp<CR>i
-" inoremap <silent><C-l> <C-\><C-n>:tabn<CR>i
-inoremap <silent><C-h> <C-\><C-n>:bp<CR>i
-inoremap <silent><C-l> <C-\><C-n>:bn<CR>i
 
 inoremap <A-h> <C-\><C-n><C-w>hi
 inoremap <A-j> <C-\><C-n><C-w>ji
@@ -182,7 +178,10 @@ inoremap <silent><A-Down> <C-\><C-n>:resize -2<CR>i
 inoremap <silent><A-Left> <C-\><C-n>:vertical resize -2<CR>i
 inoremap <silent><A-Right> <C-\><C-n>:vertical resize +2<CR>i
 
-inoremap <C-j> <right>
+inoremap <C-h> <left>
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+inoremap <C-l> <right>
 
 
 xnoremap J :m '>+1<CR>gv=gv
@@ -329,24 +328,24 @@ endfunc
 " inoremap <silent><expr>/ complete_info(["selected"])["selected"]!=-1&&getline(line('.'))[col('.')-2]=='/'?
             " \ "\<bs>/\<c-x>\<c-f>":
             " \ "/\<c-x>\<c-f>"
-let g:cmpX=-1|let g:cmpY=-1
-function! s:feed_popup()
-    if getline('.')[col('.')-1]=='/'|return|endif
-    let x = col('.') - 1|let y = line('.') - 1
-    if g:cmpX==x&&g:cmpY==y|return|endif
-    let s:min_complete=2
-    let s:context=strpart(getline('.'), 0, col('.') - 1)
-    let s:match= matchlist(s:context, '\(\k\{' . s:min_complete . ',}\)$')
-    if empty(s:match)|return|endif
-    silent! call feedkeys("\<c-n>", 'n')
-    let g:cmpX=x|let g:cmpY=y
-    return
-endfunction
-augroup Complete
-    au!
-    au CursorMovedI * nested call s:feed_popup()
-    au FileType text setlocal spell|setlocal nospell
-augroup END
+" let g:cmpX=-1|let g:cmpY=-1
+" function! s:feed_popup()
+    " if getline('.')[col('.')-1]=='/'|return|endif
+    " let x = col('.') - 1|let y = line('.') - 1
+    " if g:cmpX==x&&g:cmpY==y|return|endif
+    " let s:min_complete=2
+    " let s:context=strpart(getline('.'), 0, col('.') - 1)
+    " let s:match= matchlist(s:context, '\(\k\{' . s:min_complete . ',}\)$')
+    " if empty(s:match)|return|endif
+    " silent! call feedkeys("\<c-n>", 'n')
+    " let g:cmpX=x|let g:cmpY=y
+    " return
+" endfunction
+" augroup Complete
+    " au!
+    " au CursorMovedI * nested call s:feed_popup()
+    " au FileType text setlocal spell|setlocal nospell
+" augroup END
 
 
 " gcc for comment
