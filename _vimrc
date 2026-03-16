@@ -69,7 +69,8 @@ set title
 " Edit
 set clipboard=unnamed
 set complete=.,w,b,o
-set completeopt=menuone,preview,noinsert
+" set completeopt=menuone,preview,noinsert
+set completeopt=menuone,preview
 autocmd FileType * setlocal formatoptions-=r formatoptions-=o
 " set matchpairs+=<:>
 set nobackup
@@ -89,6 +90,15 @@ autocmd Filetype *
         \    endif
 endif
 
+" Gui
+if has("gui_running")
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=b
+endif
+
 " Search
 set incsearch
 set ignorecase
@@ -106,6 +116,12 @@ set tabstop=4
 " For Verilog
 au BufRead,BufNewFile *.sv set filetype=systemverilog
 au BufRead,BufNewFile *.v  set filetype=verilog
+let b:verilog_indent_modules = 1
+" au BufReadPost * if exists("b:current_syntax")
+" au BufReadPost *   if b:current_syntax == "verilog"
+" au BufReadPost *     let b:verilog_indent_modules = 1
+" au BufReadPost *   endif
+" au BufReadPost * endif
 
 
 " Keymaps
