@@ -37,9 +37,9 @@ set termguicolors
 " let g:gruvbox_contrast_dark="soft"
 " let g:gruvbox_transparent_bg=1
 " colorscheme gruvbox
-" colorscheme iceberg
+colorscheme iceberg
 " colorscheme lunaperche
-colorscheme nord
+" colorscheme nord
 " colorscheme wildcharm
 " colorscheme zaibatsu
 syntax on
@@ -310,7 +310,7 @@ func! s:Judge(ch,mode)
     return a:ch
 endfunc
 inoremap <expr><silent>" <sid>Judge('"','i')
-inoremap <expr><silent>` <sid>Judge('`','i')
+" inoremap <expr><silent>` <sid>Judge('`','i')
 " inoremap <expr><silent>' <sid>Judge("'",'i')
 inoremap <expr><silent>> <sid>Judge('>','i')
 inoremap <expr><silent>) <sid>Judge(')','i')
