@@ -41,6 +41,8 @@ vim.keymap.set({ "n", "x", "o" }, "L", "$", opts)
 -- Normal mode --
 -----------------
 
+-- vim.keymap.set("n", "j", "gj", opts)
+-- vim.keymap.set("n", "k", "gk", opts)
 vim.keymap.set("n", "x", '"_x', opts)
 vim.keymap.set("n", "s", '"_s', opts)
 vim.keymap.set("n", "<A-d>", '"_d', opts)
