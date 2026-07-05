@@ -30,16 +30,32 @@ filetype plugin indent on
 " Appear
 set background=dark
 set termguicolors
+" set t_Co=256
+" colorscheme 256_noir
+" colorscheme antiphoton
 " colorscheme catppuccin
 " let g:everforest_background="soft"
 " let g:everforest_transparent_background=1
 " colorscheme everforest
+" colorscheme fogbell
+" colorscheme fogbell_light
 " let g:gruvbox_contrast_dark="soft"
 " let g:gruvbox_transparent_bg=1
 " colorscheme gruvbox
-colorscheme iceberg
+" colorscheme iceberg
+" colorscheme lightning
+" colorscheme lucius
 " colorscheme lunaperche
-" colorscheme nord
+" colorscheme mountaineer
+" colorscheme mountaineer-grey
+" colorscheme mountaineer-light
+" colorscheme nighted
+colorscheme nord
+" colorscheme paramount
+" colorscheme photon
+" colorscheme seoul256
+" colorscheme seoul256-light
+" colorscheme tokyonight
 " colorscheme wildcharm
 " colorscheme zaibatsu
 syntax on
@@ -65,11 +81,15 @@ set title
 " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 " autocmd vimenter * hi NonText guibg=NONE ctermbg=NONE
 " autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
+" highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+" autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
+" autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 
 " Edit
 set clipboard=unnamed
 set complete=.,w,b,o
 " set completeopt=menuone,preview,noinsert
+" set completeopt=menuone,preview,noselect
 set completeopt=menuone,preview
 autocmd FileType * setlocal formatoptions-=r formatoptions-=o
 " set matchpairs+=<:>
@@ -125,6 +145,8 @@ let b:verilog_indent_modules = 1
 
 
 " Keymaps
+" nnoremap j gj
+" nnoremap k gk
 " change reg
 nnoremap <leader>cr  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
@@ -560,4 +582,17 @@ function MyDiff()
         let &shellxquote=l:shxq_sav
     endif
 endfunction
+
+call plug#begin()
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
+" fzf
+let g:fzf_vim = {}
+let g:fzf_vim.preview_window = ['hidden,right,50%,<50(up,40%)', 'ctrl-/']
+
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>fg :Rg<CR>
+nnoremap <Leader>fb :Buffers<CR>
 
