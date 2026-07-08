@@ -32,11 +32,41 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup,
-    pattern = { "markdown", "text", "gitcommit" },
+    pattern = { "markdown", "gitcommit" },
     callback = function()
-        vim.opt_local.wrap = true
+        vim.keymap.set("n", "j", "gj", { buffer = true })
+        vim.keymap.set("n", "k", "gk", { buffer = true })
+        vim.keymap.set("n", "0", "g0", { buffer = true })
+        vim.keymap.set("n", "L", "g$", { buffer = true })
+        vim.keymap.set("n", "H", "g^", { buffer = true })
+        vim.keymap.set("x", "j", "gj", { buffer = true })
+        vim.keymap.set("x", "k", "gk", { buffer = true })
+        vim.keymap.set("x", "0", "g0", { buffer = true })
+        vim.keymap.set("x", "L", "g$", { buffer = true })
+        vim.keymap.set("x", "H", "g^", { buffer = true })
         vim.opt_local.linebreak = true
         vim.opt_local.spell = true
+        vim.opt_local.wrap = true
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = augroup,
+    pattern = { "text" },
+    callback = function()
+        vim.keymap.set("n", "j", "gj", { buffer = true })
+        vim.keymap.set("n", "k", "gk", { buffer = true })
+        vim.keymap.set("n", "0", "g0", { buffer = true })
+        vim.keymap.set("n", "L", "g$", { buffer = true })
+        vim.keymap.set("n", "H", "g^", { buffer = true })
+        vim.keymap.set("x", "j", "gj", { buffer = true })
+        vim.keymap.set("x", "k", "gk", { buffer = true })
+        vim.keymap.set("x", "0", "g0", { buffer = true })
+        vim.keymap.set("x", "L", "g$", { buffer = true })
+        vim.keymap.set("x", "H", "g^", { buffer = true })
+        vim.opt_local.spell = true
+        vim.opt_local.textwidth = 80
+        vim.opt_local.wrap = true
     end,
 })
 
