@@ -145,8 +145,6 @@ let b:verilog_indent_modules = 1
 
 
 " Keymaps
-" nnoremap j gj
-" nnoremap k gk
 " change reg
 nnoremap <leader>cr  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
@@ -278,8 +276,28 @@ iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<CR>
 
 augroup FiletypeSettings
     autocmd!
-    autocmd FileType text setlocal spell wrap linebreak textwidth=80
+    autocmd FileType text setlocal spell wrap textwidth=80
+    autocmd FileType text nnoremap <buffer> j gj
+    autocmd FileType text nnoremap <buffer> k gk
+    autocmd FileType text nnoremap <buffer> 0 g0
+    autocmd FileType text nnoremap <buffer> L g$
+    autocmd FileType text nnoremap <buffer> H g^
+    autocmd FileType text xnoremap <buffer> j gj
+    autocmd FileType text xnoremap <buffer> k gk
+    autocmd FileType text xnoremap <buffer> 0 g0
+    autocmd FileType text xnoremap <buffer> L g$
+    autocmd FileType text xnoremap <buffer> H g^
     autocmd FileType markdown setlocal spell wrap linebreak
+    autocmd FileType markdown nnoremap <buffer> j gj
+    autocmd FileType markdown nnoremap <buffer> k gk
+    autocmd FileType markdown nnoremap <buffer> 0 g0
+    autocmd FileType markdown nnoremap <buffer> L g$
+    autocmd FileType markdown nnoremap <buffer> H g^
+    autocmd FileType markdown xnoremap <buffer> j gj
+    autocmd FileType markdown xnoremap <buffer> k gk
+    autocmd FileType markdown xnoremap <buffer> 0 g0
+    autocmd FileType markdown xnoremap <buffer> L g$
+    autocmd FileType markdown xnoremap <buffer> H g^
 augroup END
 
 
