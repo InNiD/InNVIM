@@ -265,6 +265,7 @@ onoremap L $
 " iabbrev
 iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<CR>
 
+
 " Autocmd
 " augroup ReadPost
     " au!
@@ -274,20 +275,12 @@ iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<CR>
         " \{'lnum':line('.'),'col':col('.'),'text':'close at '.strftime("%H:%M"),'time':localtime()}
         " \|endif
 " augroup END
-" 打开最近关闭的buffer
-" let g:map_recent_close={}
-" func! s:GetRecentClose()
-    " let s:list=[]
-    " for [key,value] in items(g:map_recent_close)
-        " let value['filename']=key
-        " call insert(s:list,value)
-    " endfor
-    " let s:func={m1,m2 -> m1['time']>m2['time']?-1:1}
-    " call sort(s:list,s:func)
-    " call setqflist(s:list,'r')
-    " copen
-" endfunc
-" nnoremap <silent><nowait><Leader>ob :call <sid>GetRecentClose()<cr>
+
+augroup FiletypeSettings
+    autocmd!
+    autocmd FileType text setlocal spell wrap textwidth=80
+    autocmd FileType markdown setlocal spell wrap linebreak
+augroup END
 
 
 " Plugins
@@ -442,6 +435,22 @@ augroup netrw_mapping
   autocmd!
   autocmd filetype netrw call NetrwMapping()
 augroup END
+
+
+" open recent close buffer
+" let g:map_recent_close={}
+" func! s:GetRecentClose()
+    " let s:list=[]
+    " for [key,value] in items(g:map_recent_close)
+        " let value['filename']=key
+        " call insert(s:list,value)
+    " endfor
+    " let s:func={m1,m2 -> m1['time']>m2['time']?-1:1}
+    " call sort(s:list,s:func)
+    " call setqflist(s:list,'r')
+    " copen
+" endfunc
+" nnoremap <silent><nowait><Leader>ob :call <sid>GetRecentClose()<cr>
 
 
 " sourround
