@@ -622,7 +622,7 @@ let g:fzf_vim.preview_window = ['hidden,right,50%,<50(up,40%)', 'ctrl-/']
 
 
 " vim-bufabline
-let g:buftabline_indicators = 1
+" let g:buftabline_indicators = 1
 " let g:buftabline_separators = 1
 
 nnoremap <Leader>ff :Files<CR>
