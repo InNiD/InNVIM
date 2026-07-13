@@ -613,11 +613,17 @@ endfunction
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ap/vim-buftabline'
 call plug#end()
 
 " fzf
 let g:fzf_vim = {}
 let g:fzf_vim.preview_window = ['hidden,right,50%,<50(up,40%)', 'ctrl-/']
+
+
+" vim-bufabline
+let g:buftabline_indicators = 1
+" let g:buftabline_separators = 1
 
 nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>fg :Rg<CR>
