@@ -78,9 +78,16 @@ set showcmd
 set showmode
 " set showtabline=2
 set title
-" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
-" autocmd vimenter * hi NonText guibg=NONE ctermbg=NONE
-" autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
+" autocmd vimenter * hi CursorColumn ctermbg=NONE guibg=NONE
+" autocmd vimenter * hi CursorLine ctermbg=NONE guibg=NONE
+" autocmd vimenter * hi EndOfBuffer ctermbg=NONE guibg=NONE
+" autocmd vimenter * hi NonText ctermbg=NONE guibg=NONE
+" autocmd vimenter * hi Normal ctermbg=NONE guibg=NONE
+" autocmd vimenter * hi StatusLine ctermbg=NONE guibg=NONE
+" autocmd vimenter * hi StatusLineNC ctermbg=NONE guibg=NONE
+" autocmd vimenter * hi Tabline ctermbg=NONE guibg=NONE
+" autocmd vimenter * hi TablineFill ctermbg=NONE guibg=NONE
+" autocmd vimenter * hi TablineSel ctermbg=NONE guibg=NONE
 " highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 " autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
 " autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
