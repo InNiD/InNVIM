@@ -93,7 +93,7 @@ set title
 " autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 
 " Edit
-set clipboard=unnamed
+set clipboard=unnamed,unnamedplus
 set complete=.,w,b,o
 " set completeopt=menuone,preview,noinsert
 " set completeopt=menuone,preview,noselect
