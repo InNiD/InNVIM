@@ -124,6 +124,7 @@ if has("gui_running")
     set guioptions-=L
     set guioptions-=r
     set guioptions-=b
+    set guifont=Maple\ Mono\ Normal\ NF\ CN:h16
 endif
 
 " Search
