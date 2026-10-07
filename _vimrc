@@ -178,6 +178,8 @@ nnoremap <silent><Leader>nc :cnext<CR>
 " nnoremap <silent><C-h> :tabp<CR>
 " nnoremap <silent><C-l> :tabn<CR>
 nnoremap <silent><C-h> :bp<CR>
+nnoremap <silent><C-j> J
+nnoremap <silent><C-k> K
 nnoremap <silent><C-l> :bn<CR>
 nnoremap <silent><C-w> :bd<CR>
 nnoremap <silent><Leader>to :tabo<CR>
@@ -204,6 +206,8 @@ nnoremap <A-c> "_c
 nnoremap <A-x> i<space><Esc>
 nnoremap Y y$
 nnoremap H ^
+nnoremap J 4j
+nnoremap K 4k
 nnoremap L $
 
 
