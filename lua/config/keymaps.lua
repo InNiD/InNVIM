@@ -35,6 +35,8 @@ vim.keymap.set({ "i", "t" }, "<A-Right>", "<C-\\><C-n>:vertical resize +2<CR>i",
 
 
 vim.keymap.set({ "n", "x", "o" }, "H", "^", opts)
+vim.keymap.set({ "n", "x", "o" }, "J", "4j", opts)
+vim.keymap.set({ "n", "x", "o" }, "K", "4k", opts)
 vim.keymap.set({ "n", "x", "o" }, "L", "$", opts)
 
 -----------------
@@ -48,6 +50,8 @@ vim.keymap.set("n", "s", '"_s', opts)
 vim.keymap.set("n", "<A-d>", '"_d', opts)
 vim.keymap.set("n", "<A-c>", '"_c', opts)
 vim.keymap.set("n", "<A-x>", "i<space><Esc>", opts)
+
+vim.keymap.set("n", "<C-j>", "J", opts)
 
 vim.keymap.set("n", "<leader>cr", ":<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>", opts)
 
@@ -65,8 +69,8 @@ vim.keymap.set("i", "<C-l>", "<right>", opts)
 -- Visual mode --
 -----------------
 
-vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", opts)
-vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set("x", "<C-j>", ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set("x", "<C-k>", ":m '<-2<CR>gv=gv", opts)
 
 vim.keymap.set("x", "<", "<gv", opts)
 vim.keymap.set("x", ">", ">gv", opts)
