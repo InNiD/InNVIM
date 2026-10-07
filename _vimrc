@@ -232,11 +232,13 @@ inoremap <C-k> <up>
 inoremap <C-l> <right>
 
 
-xnoremap J :m '>+1<CR>gv=gv
-xnoremap K :m '<-2<CR>gv=gv
+xnoremap <C-j> :m '>+1<CR>gv=gv
+xnoremap <C-k> :m '<-2<CR>gv=gv
 xnoremap < <gv
 xnoremap > >gv
 xnoremap H ^
+xnoremap J 4j
+xnoremap K 4k
 xnoremap L $
 
 
@@ -269,6 +271,8 @@ tnoremap <Esc> <C-\><C-n>
 
 
 onoremap H ^
+onoremap J 4j
+onoremap K 4k
 onoremap L $
 
 
@@ -292,24 +296,46 @@ augroup FiletypeSettings
     autocmd FileType text nnoremap <buffer> j gj
     autocmd FileType text nnoremap <buffer> k gk
     autocmd FileType text nnoremap <buffer> 0 g0
-    autocmd FileType text nnoremap <buffer> L g$
     autocmd FileType text nnoremap <buffer> H g^
+    autocmd FileType text nnoremap <buffer> J 4gj
+    autocmd FileType text nnoremap <buffer> K 4gk
+    autocmd FileType text nnoremap <buffer> L g$
     autocmd FileType text xnoremap <buffer> j gj
     autocmd FileType text xnoremap <buffer> k gk
     autocmd FileType text xnoremap <buffer> 0 g0
-    autocmd FileType text xnoremap <buffer> L g$
     autocmd FileType text xnoremap <buffer> H g^
+    autocmd FileType text xnoremap <buffer> J 4gj
+    autocmd FileType text xnoremap <buffer> K 4gk
+    autocmd FileType text xnoremap <buffer> L g$
+    autocmd FileType text onoremap <buffer> j gj
+    autocmd FileType text onoremap <buffer> k gk
+    autocmd FileType text onoremap <buffer> 0 g0
+    autocmd FileType text onoremap <buffer> H g^
+    autocmd FileType text onoremap <buffer> J 4gj
+    autocmd FileType text onoremap <buffer> K 4gk
+    autocmd FileType text onoremap <buffer> L g$
     autocmd FileType markdown setlocal spell wrap linebreak
     autocmd FileType markdown nnoremap <buffer> j gj
     autocmd FileType markdown nnoremap <buffer> k gk
     autocmd FileType markdown nnoremap <buffer> 0 g0
-    autocmd FileType markdown nnoremap <buffer> L g$
     autocmd FileType markdown nnoremap <buffer> H g^
+    autocmd FileType markdown nnoremap <buffer> J 4gj
+    autocmd FileType markdown nnoremap <buffer> K 4gk
+    autocmd FileType markdown nnoremap <buffer> L g$
     autocmd FileType markdown xnoremap <buffer> j gj
     autocmd FileType markdown xnoremap <buffer> k gk
     autocmd FileType markdown xnoremap <buffer> 0 g0
-    autocmd FileType markdown xnoremap <buffer> L g$
     autocmd FileType markdown xnoremap <buffer> H g^
+    autocmd FileType markdown xnoremap <buffer> J 4gj
+    autocmd FileType markdown xnoremap <buffer> K 4gk
+    autocmd FileType markdown xnoremap <buffer> L g$
+    autocmd FileType markdown onoremap <buffer> j gj
+    autocmd FileType markdown onoremap <buffer> k gk
+    autocmd FileType markdown onoremap <buffer> 0 g0
+    autocmd FileType markdown onoremap <buffer> H g^
+    autocmd FileType markdown onoremap <buffer> J 4gj
+    autocmd FileType markdown onoremap <buffer> K 4gk
+    autocmd FileType markdown onoremap <buffer> L g$
 augroup END
 
 
