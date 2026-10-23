@@ -32,7 +32,7 @@ set background=dark
 set termguicolors
 " set t_Co=256
 " colorscheme 256_noir
-" colorscheme antiphoton
+colorscheme antiphoton
 " colorscheme catppuccin
 " let g:everforest_background="soft"
 " let g:everforest_transparent_background=1
@@ -50,7 +50,7 @@ set termguicolors
 " colorscheme mountaineer-grey
 " colorscheme mountaineer-light
 " colorscheme nighted
-colorscheme nord
+" colorscheme nord
 " colorscheme paramount
 " colorscheme photon
 " colorscheme seoul256
@@ -106,7 +106,7 @@ set noundofile
 set shortmess+=c
 set showmatch
 set virtualedit=block
-set whichwrap+=h,l
+set whichwrap+=[,]
 set wildmenu
 set wildoptions=pum
 
@@ -292,7 +292,8 @@ iab xdate <C-r>=strftime("%d/%m/%y %H:%M:%S")<CR>
 
 augroup FiletypeSettings
     autocmd!
-    autocmd FileType text setlocal spell wrap textwidth=80
+    " autocmd FileType text setlocal spell wrap textwidth=80
+    autocmd FileType text setlocal wrap textwidth=80
     autocmd FileType text nnoremap <buffer> j gj
     autocmd FileType text nnoremap <buffer> k gk
     autocmd FileType text nnoremap <buffer> 0 g0
