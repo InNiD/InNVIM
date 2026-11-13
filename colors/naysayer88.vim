@@ -78,9 +78,9 @@ highlight Question                   guifg=#875f5f       guibg=NONE         gui=
 highlight Search                     guifg=#dfdfaf       guibg=#878787      gui=NONE
 highlight PmenuSel                   guifg=#dfdfaf       guibg=#875f5f      gui=NONE
 highlight MatchParen                 guifg=#dfdfaf       guibg=#875f5f      gui=NONE
-highlight VertSplit                  guifg=#042327       guibg=#042327     
+highlight VertSplit                  guifg=#042327       guibg=#042327
 highlight! EndOfBuffer               guifg=#042327       guibg=#042327      gui=NONE
-highlight! ColorColumn	             			 guibg=#07383d
-highlight! Pmenu						 guibg=#053036	    gui=NONE
-highlight! LineNr		     guifg=#d6b48b
-highlight! CursorLine		     guifg=#042327	guibg=#042327
+highlight! ColorColumn               guibg=#07383d
+highlight! Pmenu                     guibg=#053036       gui=NONE
+highlight! LineNr                    guifg=#d6b48b
+highlight! CursorLine                gui=NONE            cterm=NONE
