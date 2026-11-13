@@ -32,7 +32,7 @@ set background=dark
 set termguicolors
 " set t_Co=256
 " colorscheme 256_noir
-colorscheme antiphoton
+" colorscheme antiphoton
 " colorscheme catppuccin
 " let g:everforest_background="soft"
 " let g:everforest_transparent_background=1
@@ -49,6 +49,8 @@ colorscheme antiphoton
 " colorscheme mountaineer
 " colorscheme mountaineer-grey
 " colorscheme mountaineer-light
+colorscheme naysayer
+" colorscheme naysayer88
 " colorscheme nighted
 " colorscheme nord
 " colorscheme paramount
@@ -71,8 +73,8 @@ let g:netrw_list_hide='\(^\|\s\s\)\zs\.\S\+'
 " let g:netrw_localcopydircmd='cp -r'
 " let g:netrw_winsize = 20
 set laststatus=2
-set number
-set relativenumber
+" set number
+" set relativenumber
 set ruler
 set showcmd
 set showmode
