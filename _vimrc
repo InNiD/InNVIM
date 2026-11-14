@@ -49,7 +49,8 @@ set termguicolors
 " colorscheme mountaineer
 " colorscheme mountaineer-grey
 " colorscheme mountaineer-light
-colorscheme naysayer
+" colorscheme naysayer
+colorscheme naysayer66
 " colorscheme naysayer88
 " colorscheme nighted
 " colorscheme nord
