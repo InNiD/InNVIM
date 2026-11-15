@@ -152,8 +152,10 @@ call s:hi('rainbowcol7', s:magenta, '', 'NONE')
 " ---------------------------------------------------------------------------
 " Statusline
 " ---------------------------------------------------------------------------
-call s:hi('StatusLine',   s:lualine_fg, s:lualine_bg, 'NONE')
-call s:hi('StatusLineNC', s:line_fg,    s:gutter,     'NONE')
+" call s:hi('StatusLine',   s:lualine_fg, s:lualine_bg, 'NONE')
+" call s:hi('StatusLineNC', s:line_fg,    s:gutter,     'NONE')
+call s:hi('StatusLine',   s:comment,    s:highlight, 'NONE')
+call s:hi('StatusLineNC', s:line_fg, s:background, 'NONE')
 
 " ---------------------------------------------------------------------------
 " Tabline
@@ -170,7 +172,7 @@ call s:hi('TabLineFill', s:line_fg, s:background, 'NONE')
 " completion popup therefore falls back to editor defaults that clash with the
 " dark background.  The values below are derived from the theme palette.
 " ---------------------------------------------------------------------------
-call s:hi('Pmenu',      s:text,    s:highlight, 'NONE')
+call s:hi('Pmenu',      s:comment,    s:highlight, 'NONE')
 call s:hi('PmenuSel',   s:white,   s:selection, 'bold')
 call s:hi('PmenuSbar',  '',        s:background,'NONE')
 call s:hi('PmenuThumb', '',        s:line_fg,   'NONE')
@@ -203,7 +205,7 @@ call s:hi('FoldColumn', s:line_fg, s:background,'NONE')
 call s:hi('SignColumn', '', s:background, 'NONE')
 
 " TODO / FIXME inside comments: default is yellow background.
-call s:hi('Todo', s:yellow, '', 'bold')
+call s:hi('Todo', s:yellow, s:selection, 'bold')
 
 " Error messages (command line): default is light-red background.
 call s:hi('ErrorMsg', s:error, s:background, 'bold')
@@ -236,6 +238,7 @@ call s:hi('Title',      s:yellow, '', 'bold')
 call s:hi('NonText',    s:line_fg,'', 'NONE')
 call s:hi('SpecialKey', s:line_fg,'', 'NONE')
 call s:hi('Conceal',    s:line_fg,'', 'NONE')
+call s:hi('ModeMsg',    s:comment,  '', 'bold')
 call s:hi('MoreMsg',    s:green,  '', 'NONE')
 call s:hi('Question',   s:green,  '', 'NONE')
 call s:hi('Tag',        s:blue,   '', 'NONE')
@@ -276,15 +279,11 @@ call s:hi('markdownRule',              s:comment, '', 'NONE')
 call s:hi('markdownEscape', s:orange, '', 'NONE')
 call s:hi('markdownError',  s:error,  s:highlight, 'NONE')
 
-" ---------------------------------------------------------------------------
-" Neovim-only UI groups (harmless in Vim: Vim ignores groups it never uses).
-" Only meaningful if this file is shared with Neovim.
-" ---------------------------------------------------------------------------
 call s:hi('NormalFloat', s:text,    s:highlight, 'NONE')
 call s:hi('FloatBorder', s:line_fg, s:highlight, 'NONE')
 call s:hi('FloatTitle',  s:yellow,  s:highlight, 'bold')
 call s:link('WinSeparator', 'VertSplit')   " Neovim 0.10+
-call s:hi('MsgArea',     s:text,    s:background,'NONE')   " Neovim 0.9+
+call s:hi('MsgArea',     s:comment,    s:background,'NONE')   " Neovim 0.9+
 call s:hi('MsgSeparator', s:line_fg, s:background,'NONE')
 
 " ---------------------------------------------------------------------------
@@ -300,16 +299,6 @@ call s:hi('NeoTreeTabActive',            s:white,      s:highlight,  'bold')
 call s:hi('NeoTreeTabInactive',          s:line_fg,    s:background, 'NONE')
 call s:hi('NeoTreeTabSeparatorActive',   s:highlight,  s:highlight,  'NONE')
 call s:hi('NeoTreeTabSeparatorInactive', s:background, s:background, 'NONE')
-
-" ---------------------------------------------------------------------------
-" Treesitter (Neovim only — Vim has no treesitter and '@' is not a legal
-" character in a Vim highlight group name, so these cannot be ported).
-" For reference, the original mapped:
-"   @comment/@string/@number/@boolean/@constant/@function/@function.builtin/
-"   @variable/@type/@keyword/@keyword.function/@field/@property/@parameter
-" to the plain syntax groups above. Vim's syntax engine already highlights
-" those constructs through Comment/String/Number/Function/Type/Keyword.
-" ---------------------------------------------------------------------------
 
 delfunction s:hi
 delfunction s:link
