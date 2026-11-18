@@ -1,18 +1,17 @@
--- 高亮复制的文本
 vim.api.nvim_create_autocmd("TextYankPost", {
+    group = vim.api.nvim_create_augroup("TextYankPost", { clear = true }),
     callback = function()
         vim.hl.on_yank()
     end,
 })
 
--- 取消换行自动添加注释
 vim.api.nvim_create_autocmd({"FileType"}, {
+    group = vim.api.nvim_create_augroup("AllFile", { clear = true }),
     command = "set formatoptions-=ro"
 })
 
--- 回到上次关闭时的位置
 vim.api.nvim_create_autocmd("BufReadPost", {
-    group = augroup,
+    group = vim.api.nvim_create_augroup("BufReadPost", { clear = true }),
     callback = function()
         if vim.o.diff then
             return
@@ -31,7 +30,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    group = augroup,
+    group = vim.api.nvim_create_augroup("Markdown", { clear = true }),
     pattern = { "markdown", "gitcommit" },
     callback = function()
         vim.keymap.set("n", "j", "gj", { buffer = true })
@@ -62,7 +61,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-    group = augroup,
+    group = vim.api.nvim_create_augroup("Text", { clear = true }),
     pattern = { "text" },
     callback = function()
         vim.keymap.set("n", "j", "gj", { buffer = true })

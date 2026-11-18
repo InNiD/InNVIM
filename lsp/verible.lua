@@ -3,3 +3,4 @@ return {
   filetypes = { 'systemverilog', 'verilog' },
   root_markers = { '.git' },
 }
+
