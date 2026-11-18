@@ -19,8 +19,10 @@ hi! link VertSplit      StatusLineNC
 hi Normal         guifg=#d0b892 guibg=#062626
 hi SignColumn     guibg=#062626
 hi Cursor         guibg=#ffffff
-hi CursorLine     guibg=#0b3335 guifg=NONE gui=NONE
-hi CursorLineNr   guifg=#ffffff guibg=#062626
+hi CursorLine     guibg=#0b3335 guifg=NONE gui=NONE cterm=NONE guisp=NONE
+hi CursorLineNr   guifg=#A1EFE4 guibg=#062626 gui=NONE cterm=NONE
+hi CursorLineSign guibg=#0b3335 gui=NONE cterm=NONE
+hi CursorLineFold guibg=#0b3335 gui=NONE cterm=NONE
 hi LineNr         guifg=#126367 guibg=#062626
 hi ColorColumn    guibg=#0b3335
 hi MatchParen     guibg=#23444b
@@ -35,9 +37,9 @@ hi VertSplit      guifg=#126367 guibg=#062626
 hi StatusLineTerm guifg=#A1EFE4 guibg=#0b3335 gui=NONE
 
 " ---- Tabline ----
-hi TabLine        guifg=#126367 guibg=#062626 gui=NONE
-hi TabLineFill    guibg=#062626 gui=NONE
-hi TabLineSel     guifg=#A1EFE4 guibg=#0b3335 gui=NONE
+hi TabLine        guifg=#126367 guibg=#062626 gui=NONE cterm=NONE
+hi TabLineFill    guibg=#062626 gui=NONE cterm=NONE
+hi TabLineSel     guifg=#A1EFE4 guibg=#0b3335 gui=NONE cterm=NONE
 
 " ---- Command line / messages ----
 hi CommandLine    guifg=#A1EFE4 guibg=#062626
