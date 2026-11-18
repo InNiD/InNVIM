@@ -158,18 +158,18 @@ let b:verilog_indent_modules = 1
 nnoremap <leader>cr  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
 " explore
-nnoremap <silent><Leader>ow :Explore .<CR>
+"nnoremap <silent><Leader>ow :Explore .<CR>
 " nnoremap <silent><leader>oc :Explore %:p:h<CR>
-nnoremap <silent><Leader>oc :Explore<CR>
-nnoremap <silent><Leader>or :Rexplore<CR>
+nnoremap <silent><Leader>e :Explore<CR>
+"nnoremap <silent><Leader>or :Rexplore<CR>
 
 " find
-nnoremap <Leader>ff :find<space>
-nnoremap <Leader>fg :vimgrep<space>
+nnoremap <Leader>f :find<space>
+nnoremap <Leader>g :vimgrep<space>
 " nnoremap <Leader>fg :grep<space>
 
 " lazygit
-nnoremap <silent><leader>lg :tabe<CR>:call term_start("lazygit", {"curwin": 1, "term_finish": "close"})<CR>
+"nnoremap <silent><leader>lg :tabe<CR>:call term_start("lazygit", {"curwin": 1, "term_finish": "close"})<CR>
 
 " quickfix
 nnoremap <silent><Leader>qf :copen<CR>
@@ -183,9 +183,9 @@ nnoremap <silent><C-j> J
 nnoremap <silent><C-k> K
 nnoremap <silent><C-l> :bn<CR>
 nnoremap <silent><C-w> :bd<CR>
-nnoremap <silent><Leader>to :tabo<CR>
-nnoremap <Leader>fb :buffers<CR>:b<space>
-nnoremap <Leader>bc :buffers<CR>:bd<space>
+"nnoremap <silent><Leader>to :tabo<CR>
+nnoremap <Leader>b :buffers<CR>:b<space>
+"nnoremap <Leader>bc :buffers<CR>:bd<space>
 
 nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
@@ -665,7 +665,7 @@ let g:fzf_vim.preview_window = ['hidden,right,50%,<50(up,40%)', 'ctrl-/']
 " let g:buftabline_indicators = 1
 " let g:buftabline_separators = 1
 
-nnoremap <Leader>ff :Files<CR>
-nnoremap <Leader>fg :Rg<CR>
-nnoremap <Leader>fb :Buffers<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>g :Rg<CR>
+nnoremap <Leader>b :Buffers<CR>
 
