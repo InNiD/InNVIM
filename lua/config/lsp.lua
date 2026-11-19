@@ -1,3 +1,8 @@
+vim.lsp.enable({
+    -- "clangd",
+    -- "slang-server",
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("LspAttach", { clear = true }),
     callback = function (args)
