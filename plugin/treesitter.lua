@@ -24,15 +24,17 @@ require("nvim-treesitter").install({
     "yaml",
 })
 
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-    callback = function()
-        local bufnr = vim.api.nvim_get_current_buf()
-        pcall(vim.treesitter.start, bufnr)
-    end,
-})
-
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "<filetype>" },
+    pattern = {
+        "c",
+        "cpp",
+        "html",
+        "latex",
+        "markdown",
+        "python",
+        "systemverilog",
+        "yaml",
+    },
     callback = function()
         vim.treesitter.start()
         vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'

@@ -1,26 +1,28 @@
-vim.pack.add({ { src = "https://github.com/catppuccin/nvim", name = "catppuccin" } })
-require("catppuccin").setup({
-    -- latte, frappe, macchiato, mocha
-    flavour = "frappe",
-    transparent_background = true,
-    float = {
-        -- transparent = true,
-        -- solid = true,
-    },
-})
-vim.cmd.colorscheme("catppuccin-nvim")
+-- vim.pack.add({ { src = "https://github.com/catppuccin/nvim", name = "catppuccin" } })
+-- require("catppuccin").setup({
+--     -- latte, frappe, macchiato, mocha
+--     flavour = "frappe",
+--     transparent_background = true,
+--     float = {
+--         -- transparent = true,
+--         -- solid = true,
+--     },
+-- })
+-- vim.cmd.colorscheme("catppuccin-nvim")
 
 
--- vim.pack.add({ { src = "https://github.com/sainnhe/everforest", name = "everforest" } })
--- -- hard, medium, soft
--- vim.g.everforest_background = "soft"
--- vim.g.everforest_transparent_background = 2
--- vim.cmd.colorscheme("everforest")
+vim.pack.add({ { src = "https://github.com/sainnhe/everforest", name = "everforest" } })
+-- hard, medium, soft
+vim.g.everforest_background = "medium"
+vim.g.everforest_diagnostic_virtual_text = "colored"
+vim.g.everforest_transparent_background = 2
+vim.cmd.colorscheme("everforest")
 
 
 -- vim.pack.add({ { src = "https://github.com/sainnhe/gruvbox-material", name = "gruvbox" } })
 -- -- hard, medium, soft
 -- vim.g.gruvbox_material_background = "medium"
+-- vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
 -- -- material, mix, original
 -- vim.g.gruvbox_material_foreground = "material"
 -- vim.g.gruvbox_material_transparent_background = 1
