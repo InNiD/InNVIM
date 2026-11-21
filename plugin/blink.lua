@@ -43,6 +43,10 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
 
             signature = { enabled = true },
         })
+        vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "NONE" })
+        -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+        -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
     end,
 })
 
