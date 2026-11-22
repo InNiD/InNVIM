@@ -40,8 +40,10 @@ vim.keymap.set({ "n", "x", "o" }, "L", "$", { noremap = true })
 
 --------------------------------  Normal Mode --------------------------------
 
--- vim.keymap.set("n", "j", "gj", opts)
--- vim.keymap.set("n", "k", "gk", opts)
+vim.keymap.set("n", "<C-h>", ":bp<CR>", opts)
+vim.keymap.set("n", "<C-l>", ":bn<CR>", opts)
+vim.keymap.set("n", "<C-w>", ":bd<CR>", { noremap = true, nowait = true, silent = true})
+
 vim.keymap.set("n", "x", '"_x', { noremap = true })
 vim.keymap.set("n", "s", '"_s', { noremap = true })
 vim.keymap.set("n", "<A-d>", '"_d', { noremap = true })
@@ -70,20 +72,23 @@ vim.keymap.set("x", ">", ">gv", { noremap = true })
 
 --------------------------------  Command Mode --------------------------------
 
-vim.keymap.set("c", "<C-p>", "<up>")
-vim.keymap.set("c", "<C-n>", "<down>")
+vim.keymap.set("c", "<C-p>", "<up>", { noremap = true })
+vim.keymap.set("c", "<C-n>", "<down>", { noremap = true })
 
-vim.keymap.set("c", "<C-h>", "<left>")
-vim.keymap.set("c", "<C-l>", "<right>")
-vim.keymap.set("c", "<C-b>", "<S-left>")
-vim.keymap.set("c", "<C-w>", "<S-right>")
-vim.keymap.set("c", "<C-a>", "<home>")
-vim.keymap.set("c", "<C-e>", "<end>")
+vim.keymap.set("c", "<C-h>", "<left>", { noremap = true })
+vim.keymap.set("c", "<C-l>", "<right>", { noremap = true })
+vim.keymap.set("c", "<C-b>", "<S-left>", { noremap = true })
+vim.keymap.set("c", "<C-w>", "<S-right>", { noremap = true })
+vim.keymap.set("c", "<C-a>", "<home>", { noremap = true })
+vim.keymap.set("c", "<C-e>", "<end>", { noremap = true })
 
 --------------------------------  Terminal Mode --------------------------------
 
+vim.keymap.set("t", "<C-h>", "<C-\\><C-n>:bp<CR>i", opts)
+vim.keymap.set("t", "<C-l>", "<C-\\><C-n>:bn<CR>i", opts)
+
 -- Use <Esc> to exit terminal mode
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -------------------------------- Iabbrev --------------------------------
 

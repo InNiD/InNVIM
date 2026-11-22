@@ -38,6 +38,7 @@ vim.diagnostic.config({
 })
 -- vim.opt.matchpairs:append("<:>")
 vim.opt.swapfile = false
+vim.opt.undofile = true
 vim.opt.virtualedit = "block"
 vim.opt.whichwrap:append("h,l")
 
@@ -46,6 +47,9 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- Statusline
+vim.opt.statusline = "  %t  %y%m%r%h%w%=%P  %l-%c  "
 
 -- Tab
 vim.opt.expandtab = true
