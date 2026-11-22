@@ -183,7 +183,7 @@ nnoremap <silent><C-h> :bp<CR>
 nnoremap <silent><C-j> J
 nnoremap <silent><C-k> K
 nnoremap <silent><C-l> :bn<CR>
-nnoremap <silent><C-w> :bd<CR>
+nnoremap <silent><nowait><C-w> :bd<CR>
 "nnoremap <silent><Leader>to :tabo<CR>
 nnoremap <Leader>b :buffers<CR>:b<space>
 "nnoremap <Leader>bc :buffers<CR>:bd<space>
