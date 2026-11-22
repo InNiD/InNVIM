@@ -3,7 +3,7 @@
 --     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
 -- })
 --
--- vim.api.nvim_create_autocmd("VimEnter", {
+-- vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 --     group = vim.api.nvim_create_augroup("bufferline", { clear = true }),
 --     once = true,
 --     callback = function()

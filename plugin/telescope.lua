@@ -1,7 +1,7 @@
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = vim.api.nvim_create_augroup("telescope", { clear = true }),
-    once = true,
-    callback = function()
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     group = vim.api.nvim_create_augroup("telescope", { clear = true }),
+--     once = true,
+--     callback = function()
         vim.pack.add({
             { src = "https://github.com/nvim-telescope/telescope.nvim" },
             { src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -21,6 +21,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
         vim.keymap.set("n", "<leader>d", builtin.diagnostics)
         vim.keymap.set("n", "<leader>i", builtin.lsp_incoming_calls)
         vim.keymap.set("n", "<leader>o", builtin.lsp_outgoing_calls)
-    end,
-})
+    -- end,
+-- })
 
