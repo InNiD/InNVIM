@@ -99,6 +99,7 @@ set complete=.,w,b,o
 " set completeopt=menuone,preview,noinsert
 " set completeopt=menuone,preview,noselect
 set completeopt=menuone,preview
+set foldmethod=syntax
 autocmd FileType * setlocal formatoptions-=r formatoptions-=o
 " set matchpairs+=<:>
 set nobackup
