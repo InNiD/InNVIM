@@ -76,7 +76,7 @@ set laststatus=2
 " set relativenumber
 set ruler
 set showcmd
-set showmode
+set noshowmode
 set showtabline=1
 set title
 " autocmd vimenter * hi CursorColumn ctermbg=NONE guibg=NONE
