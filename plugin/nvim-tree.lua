@@ -10,7 +10,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
     group = vim.api.nvim_create_augroup("nvim-tree", { clear = true }),
     once = true,
     callback = function()
-        require("nvim-tree").setup()
+        require("nvim-tree").setup({
+            actions = {
+                open_file = {
+                    quit_on_open = true
+                }
+            }
+        })
         vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { silent = true })
     end,
 })
