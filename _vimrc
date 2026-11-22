@@ -77,7 +77,7 @@ set laststatus=2
 set ruler
 set showcmd
 set showmode
-" set showtabline=2
+set showtabline=1
 set title
 " autocmd vimenter * hi CursorColumn ctermbg=NONE guibg=NONE
 " autocmd vimenter * hi CursorLine ctermbg=NONE guibg=NONE
@@ -103,7 +103,8 @@ autocmd FileType * setlocal formatoptions-=r formatoptions-=o
 " set matchpairs+=<:>
 set nobackup
 set noswapfile
-set noundofile
+set undofile
+set undodir=~/.vim/.undo// 
 set shortmess+=c
 set showmatch
 set virtualedit=block
@@ -570,8 +571,9 @@ set statusline+=%P\ \ 
 set statusline+=%1*\ %l-%c\ 
 
 " without color version
-set statusline=\ %{g:status_git_branch}
-set statusline+=\ %t\ 
+" set statusline=\ %{g:status_git_branch}
+" set statusline+=\ %t\ 
+set statusline=\ %t\ 
 set statusline+=\ %y
 set statusline+=%m
 set statusline+=%r
