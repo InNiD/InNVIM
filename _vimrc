@@ -156,24 +156,24 @@ let b:verilog_indent_modules = 1
 
 
 " Keymaps
-" change reg
+" Change reg
 nnoremap <leader>cr  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
-" explore
+" Explore
 "nnoremap <silent><Leader>ow :Explore .<CR>
 " nnoremap <silent><leader>oc :Explore %:p:h<CR>
 nnoremap <silent><Leader>e :Explore<CR>
 "nnoremap <silent><Leader>or :Rexplore<CR>
 
-" find
+" Find
 nnoremap <Leader>f :find<space>
 nnoremap <Leader>g :vimgrep<space>
 " nnoremap <Leader>fg :grep<space>
 
-" lazygit
+" Lazygit
 "nnoremap <silent><leader>lg :tabe<CR>:call term_start("lazygit", {"curwin": 1, "term_finish": "close"})<CR>
 
-" quickfix
+" Quickfix
 nnoremap <silent><Leader>qf :copen<CR>
 nnoremap <silent><Leader>pc :cprev<CR>
 nnoremap <silent><Leader>nc :cnext<CR>
@@ -344,19 +344,7 @@ augroup END
 
 
 " Plugins
-" autopairs
-" map enter
-func! s:Enter()
-    let ch=getline('.')[col('.')-1]|let last=getline('.')[col('.')-2]
-    if ch=='}'&&last=='{'
-        let str=matchstr(getline('.'),"^\\s*")
-        call append(line('.'),str.ch)
-        return "\<del>\<cr>"
-    endif
-    return "\<cr>"
-endfunc
-inoremap <silent><cr> <c-r>=<sid>Enter()<cr>
-
+" Autopairs
 " set pair baket
 inoremap ( ()<left>
 inoremap [ []<left>
@@ -367,55 +355,8 @@ inoremap { {}<left>
 " cnoremap { {}<left>
 " cnoremap < <><left>
 
-" jump
-func! s:Judge(ch,mode)
-    if a:mode!='c'
-        let ch=getline('.')[col('.')-1]
-    else
-        let ch=getcmdline()[getcmdpos()-1]
-    endif
-    if a:ch=='"'||a:ch=="'"||a:ch=='`'
-        if ch!=a:ch
-            return a:ch.a:ch."\<left>"
-        endif
-    endif
-    if ch==a:ch
-        return "\<right>"
-    endif
-    return a:ch
-endfunc
-inoremap <expr><silent>" <sid>Judge('"','i')
-" inoremap <expr><silent>` <sid>Judge('`','i')
-" inoremap <expr><silent>' <sid>Judge("'",'i')
-inoremap <expr><silent>> <sid>Judge('>','i')
-inoremap <expr><silent>) <sid>Judge(')','i')
-inoremap <expr><silent>} <sid>Judge('}','i')
-inoremap <expr><silent>] <sid>Judge(']','i')
-" cnoremap <expr>" <sid>Judge('"','c')
-" cnoremap <expr>` <sid>Judge('`','c')
-" cnoremap <expr>' <sid>Judge("'",'c')
-" cnoremap <expr>> <sid>Judge('>','c')
-" cnoremap <expr>) <sid>Judge(')','c')
-" cnoremap <expr>} <sid>Judge('}','c')
-" cnoremap <expr>] <sid>Judge(']','c')
-" set backspace
-inoremap <expr><bs> <sid>Backspace('i')
-" cnoremap <expr><bs> <sid>Backspace('c')
-func! s:Backspace(mode)
-    if a:mode!='c'
-        let s:pair=getline('.')[col('.')-1]|let s:pair_l=getline('.')[col('.')-2]
-    else
-        let s:pair=getcmdline()[getcmdpos()-1]|let s:pair_l=getcmdline()[getcmdpos()-2]
-    endif
-    if has_key(g:pair_map, s:pair_l)&&(g:pair_map[s:pair_l]==s:pair)
-        return "\<right>\<bs>\<bs>"
-    else
-        return "\<bs>"
-    endif
-endfunc
 
-
-" auto pop complete menu
+" Auto pop complete menu
 " inoremap <silent><expr>/ complete_info(["selected"])["selected"]!=-1&&getline(line('.'))[col('.')-2]=='/'?
             " \ "\<bs>/\<c-x>\<c-f>":
             " \ "/\<c-x>\<c-f>"
@@ -439,7 +380,7 @@ endfunc
 " augroup END
 
 
-" gcc for comment
+" Gcc for comment
 func! s:Commentary(line) abort
     let s:num=a:line
     let line=getline(s:num)
@@ -475,7 +416,7 @@ nnoremap <silent><nowait>gcc :call <sid>Commentary(line('.'))<cr>
 xnoremap <silent><nowait>gc  :call <sid>VisualComment()<cr>
 
 
-" netrw
+" Netrw
 function! NetrwMapping()
     nmap <buffer> H u
     nmap <buffer> h -
@@ -497,57 +438,7 @@ augroup netrw_mapping
 augroup END
 
 
-" open recent close buffer
-" let g:map_recent_close={}
-" func! s:GetRecentClose()
-    " let s:list=[]
-    " for [key,value] in items(g:map_recent_close)
-        " let value['filename']=key
-        " call insert(s:list,value)
-    " endfor
-    " let s:func={m1,m2 -> m1['time']>m2['time']?-1:1}
-    " call sort(s:list,s:func)
-    " call setqflist(s:list,'r')
-    " copen
-" endfunc
-" nnoremap <silent><nowait><Leader>ob :call <sid>GetRecentClose()<cr>
-
-
-" sourround
-let g:pair_map={'(':')','[':']','{':'}','"':'"',"'":"'",'<':'>','`':'`',}
-func! s:AddSourround()
-    let s:ch=nr2char(getchar())|let s:col=col('.')|let pos=getcurpos()
-    norm! gv"sy
-    let s:str = @s
-    for k in keys(g:pair_map)
-        if s:ch==k||s:ch==g:pair_map[k]
-            execute ":s/^\\(.\\{".(col('.')-1)."\\}\\)".escape(s:str, '~"\.^$[]*')."/\\1".k.s:str.g:pair_map[k]."/"
-            call setpos('.', pos)
-            return
-        endif
-    endfor
-    echo s:ch.' unknow pair'
-endfunc
-func! s:DelSourround()
-    let s:ch=nr2char(getchar())
-    if getline('.')[col('.')-1]!=s:ch|echo 'not begin with'.s:ch|return|endif
-    for k in keys(g:pair_map)
-        if s:ch==k|execute 'normal! xf'.g:pair_map[k].'x'|return|endif
-    endfor
-endfunc
-func! s:ChangeSourround()
-    let s:ch=nr2char(getchar())|let s:two=nr2char(getchar())
-    let pos=getcurpos()
-    if getline('.')[col('.')-1]!=s:ch|echo 'not begin with'.s:ch|return|endif
-    execute 'normal! r'.s:two.'f'.g:pair_map[s:ch].'r'.g:pair_map[s:two]
-    call setpos('.',pos)
-endfunc
-xnoremap <silent>S  :<c-u>call <sid>AddSourround()<cr>
-nnoremap <silent>ds :call <sid>DelSourround()<cr>
-nnoremap <silent>cs :call <sid>ChangeSourround()<cr>
-
-
-" statusline
+" Statusline
 let g:status_git_branch=""
 func! GitBranchShow(chan,msg)
     let g:status_git_branch=" ".a:msg." "
@@ -556,22 +447,22 @@ if g:status_git_branch==""
     call job_start("git rev-parse --abbrev-ref HEAD",{"out_cb":"GitBranchShow"})
 endif
 
-set statusline=%1*\ %{g:status_git_branch}
+" set statusline=%1*\ %{g:status_git_branch}
 " set statusline+=%2*\ %t\ 
-set statusline+=%2*\ %t\ 
+" set statusline+=%2*\ %t\ 
 " set statusline+=%3*
-set statusline+=%3*
-set statusline+=%4*\ %y
-set statusline+=%m
-set statusline+=%r
-set statusline+=%h
-set statusline+=%w
-set statusline+=%=
+" set statusline+=%3*
+" set statusline+=%4*\ %y
+" set statusline+=%m
+" set statusline+=%r
+" set statusline+=%h
+" set statusline+=%w
+" set statusline+=%=
 " set statusline+=%P\ \ 
-set statusline+=%P\ \ 
-set statusline+=%1*\ %l-%c\ 
+" set statusline+=%P\ \ 
+" set statusline+=%1*\ %l-%c\ 
 
-" without color version
+" Without color version
 " set statusline=\ %{g:status_git_branch}
 " set statusline+=\ %t\ 
 set statusline=\ %t\ 
@@ -603,10 +494,10 @@ set statusline+=\ %l-%c\
 " highlight User4 guifg=#fbf1c7 guibg=#504945
 
 " iceberg
-highlight User1 guifg=#161821 guibg=#818596
-highlight User2 guifg=#818596 guibg=#2a3158
-highlight User3 guifg=#2a3158 guibg=#1e2132
-highlight User4 guifg=#818596 guibg=#1e2132
+" highlight User1 guifg=#161821 guibg=#818596
+" highlight User2 guifg=#818596 guibg=#2a3158
+" highlight User3 guifg=#2a3158 guibg=#1e2132
+" highlight User4 guifg=#818596 guibg=#1e2132
 
 " nord
 " highlight User1 guifg=#2e3440 guibg=#d8dee9
@@ -615,49 +506,12 @@ highlight User4 guifg=#818596 guibg=#1e2132
 " highlight User4 guifg=#d8dee9 guibg=#4c566a
 
 
-" Use the internal diff if available.
-" Otherwise use the special 'diffexpr' for Windows.
-if &diffopt !~# 'internal'
-    set diffexpr=MyDiff()
-endif
-function MyDiff()
-    let opt = '-a --binary '
-    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-    let arg1 = v:fname_in
-    if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-    let arg1 = substitute(arg1, '!', '\!', 'g')
-    let arg2 = v:fname_new
-    if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-    let arg2 = substitute(arg2, '!', '\!', 'g')
-    let arg3 = v:fname_out
-    if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-    let arg3 = substitute(arg3, '!', '\!', 'g')
-    if $VIMRUNTIME =~ ' '
-        if &sh =~ '\<cmd'
-            if empty(&shellxquote)
-                let l:shxq_sav = ''
-                set shellxquote&
-            endif
-            let cmd = '"' . $VIMRUNTIME . '\diff"'
-        else
-            let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-        endif
-    else
-        let cmd = $VIMRUNTIME . '\diff'
-    endif
-    let cmd = substitute(cmd, '!', '\!', 'g')
-    silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
-    if exists('l:shxq_sav')
-        let &shellxquote=l:shxq_sav
-    endif
-endfunction
-
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-buftabline'
 call plug#end()
+
 
 " fzf
 let g:fzf_vim = {}
